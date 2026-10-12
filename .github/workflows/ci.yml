@@ -68,9 +68,13 @@ jobs:
           # quantbuddy.cn = POST-only API endpoints (GET 404s by design);
           # financialmodelingprep.com = bot-blocks non-browser agents (403);
           # fulltextSearch/{code6}, MCP_HOST = template URLs with placeholders.
+          # file:// = relative links to companion files (scripts/, references/)
+          #   that live upstream; mirrors here are SKILL.md-only by design
+          #   (see NOTICE.md), so those resolve upstream, not locally.
           args: >-
             --no-progress
             --max-retries 3
+            --exclude 'file://.*'
             --exclude 'http://127\.0\.0\.1.*'
             --exclude 'http://localhost.*'
             --exclude 'github\.com/Owner/Repo'
