@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: Awesome Quant Skills
+message: If you use this directory, please cite it as below.
+type: software
+authors:
+  - family-names: Liu
+    given-names: Jerry
+    alias: JerryLiu369
+    website: https://github.com/JerryLiu369
+repository-code: https://github.com/JerryLiu369/awesome-quant-skills
+license: MIT
+keywords:
+  - quantitative-finance
+  - agent-skills
+  - model-context-protocol
+  - algorithmic-trading
+  - systematic-trading
+abstract: A curated directory of agent skills, quant MCP servers, and
+  skill-native systems for quantitative finance across SKILL.md-compatible
+  coding agents.

@@ -1,0 +1,32 @@
+# Awesome Quant Skills
+
+> A curated directory of agent skills, quant MCP servers, and skill-native
+> systems for quantitative finance, systematic research, and algorithmic
+> trading. For humans and AI agents. Research/education only — not investment
+> advice; default to paper trading and human approval (see SECURITY.md).
+
+- Repo: https://github.com/JerryLiu369/awesome-quant-skills
+- Full guide: README.md (start at Quickstart). License details: NOTICE.md.
+- Own curation: MIT. Mirrored skills under `skills/` keep upstream licenses.
+
+## Layout (stable contract)
+
+- `skills/<category>/<name>/SKILL.md` — 33 mirrored skills, `SKILL.md`-only
+  excerpts; each file has an `Imported from` header with its upstream source.
+  Frontmatter always has `name` + `description`.
+- Categories: `alpha-factors`, `backtesting-audit`, `china-markets`,
+  `crypto-web3`, `global-equities`, `portfolio-risk`.
+- README directory sections (link-only upstream repos, no local copy):
+  Vertical Market Stacks (China A-Shares & Futures, Crypto & Web3, US &
+  Global Equities), Universal Quant Pipeline (Data Ingestion, Alpha
+  Generation, Portfolio & Risk, Backtesting & Safety, Execution & Routing),
+  Quant MCP Servers (Market Feeds, Broker Gateways), Skill-Native Frameworks,
+  Miscellaneous. Entries without a `mirrored at` note are link-only.
+- `NOTICE.md` — the mirror-to-upstream index table (local path, upstream,
+  license status). `SECURITY.md` — safe defaults for money-moving tools.
+
+## Compatibility
+
+Skills follow the open `SKILL.md` convention and load in Claude Code,
+OpenCode, Codex, Cursor, OpenClaw, Hermes, and other compatible harnesses;
+only the install path differs (e.g. `~/.claude/skills/` for Claude Code).
