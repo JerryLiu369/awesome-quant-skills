@@ -28,6 +28,7 @@ jobs:
           with open('NOTICE.md', 'r', encoding='utf-8') as f:
               notices = f.read()
           skills = sorted(glob.glob('skills/*/SKILL.md') + glob.glob('skills/*/*/SKILL.md'))
+          skills = [p.replace(os.sep, '/') for p in skills]
           if not skills:
               sys.exit('No mirrored skills found under skills/')
           print(f'Mirrored skills found: {len(skills)}')
