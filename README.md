@@ -224,6 +224,8 @@ Many skills and MCP servers listed here can route real orders (CTP, QMT, Alpaca,
 
 You are solely responsible for compliance, risk control, and any losses.
 
+See [SECURITY.md](SECURITY.md) for safe defaults (paper-first, human approval, key handling).
+
 ---
 
 ## 📄 License

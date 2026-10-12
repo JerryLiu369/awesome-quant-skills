@@ -22,9 +22,9 @@ jobs:
         run: |
           python -c "
           import glob, os, re, sys
-          for required in ['LICENSE', 'NOTICE.md']:
+          for required in ['LICENSE', 'NOTICE.md', 'SECURITY.md']:
               if not os.path.exists(required):
-                  sys.exit(f'Missing {required} (root license / third-party notices required)')
+                  sys.exit(f'Missing {required}')
           with open('NOTICE.md', 'r', encoding='utf-8') as f:
               notices = f.read()
           skills = sorted(glob.glob('skills/*/SKILL.md') + glob.glob('skills/*/*/SKILL.md'))
@@ -52,3 +52,21 @@ jobs:
               sys.exit(1)
           print('All skill files validated successfully.')
           "
+
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check markdown links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 3
+            --accept 100-103,200-299,403,429
+            './README.md' './CONTRIBUTING.md' './NOTICE.md' './SECURITY.md'
+            './skills/**/*.md'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
