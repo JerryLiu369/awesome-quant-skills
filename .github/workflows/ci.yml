@@ -25,6 +25,9 @@ jobs:
           catalog_path = 'data/catalog.json'
           if not os.path.exists(catalog_path):
               sys.exit('Missing data/catalog.json')
+          for required in ['LICENSE', 'NOTICE.md']:
+              if not os.path.exists(required):
+                  sys.exit(f'Missing {required} (root license / third-party notices required)')
           with open(catalog_path, 'r', encoding='utf-8') as f:
               data = json.load(f)
           print(f'Total registered skills: {data.get(\"total_skills\")}')
@@ -35,6 +38,10 @@ jobs:
                   errors.append(f'File not found: {p}')
               elif os.path.getsize(p) == 0:
                   errors.append(f'Empty file: {p}')
+              if not item.get('license'):
+                  errors.append(f'Missing license field: {item.get(\"name\")}')
+              if not item.get('upstream_url'):
+                  errors.append(f'Missing upstream_url field: {item.get(\"name\")}')
           if errors:
               print('Validation errors:\n' + '\n'.join(errors))
               sys.exit(1)
