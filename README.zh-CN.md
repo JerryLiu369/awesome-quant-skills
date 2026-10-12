@@ -18,10 +18,10 @@
 
 ```mermaid
 flowchart LR
-    V[Vertical stacks<br/>China · Crypto · US equities] --> P[Quant pipeline<br/>Data → Alpha → Portfolio → Backtest → Execute]
-    M[MCP servers<br/>Feeds · Brokers] --> P
-    F[Skill-native frameworks] --> P
-    P --> S[skills/ mirror pack<br/>copy-paste SKILL.md]
+    V[垂直分类<br/>中国 · 加密 · 美股] --> P[量化流水线<br/>数据 → 因子 → 组合 → 回测 → 执行]
+    M[MCP 服务<br/>行情 · 券商] --> P
+    F[Skill 原生框架] --> P
+    P --> S[skills/ 镜像包<br/>拷走即用 SKILL.md]
 ```
 
 ---
