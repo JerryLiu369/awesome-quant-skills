@@ -19,4 +19,5 @@ Thank you for contributing! We aim to maintain a high-signal index of agent skil
 
 1. Fork the repository.
 2. Add your entry to `README.md`.
-3. Submit a PR with a clear title (e.g., `Add Owner/Repo to Alpha Generation`).
+3. For mirrored skills under `skills/`: keep the `Imported from` header, add the `license` and `upstream_url` fields for the new entry in `data/catalog.json`, and add the matching row to `NOTICE.md` (CI validates all three stay in sync).
+4. Submit a PR with a clear title (e.g., `Add Owner/Repo to Alpha Generation`).
