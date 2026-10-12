@@ -13,6 +13,7 @@ Thank you for contributing! We aim to maintain a high-signal index of agent skil
    - Do not submit stale code dumps, broken scrapers, or get-rich-quick trading bot spam.
    - Financial accuracy: backtest skills should demonstrate awareness of lookahead bias, split adjustments, and realistic transaction costs.
 3. **Alphabetical Order**: Place new entries alphabetically within their respective category, or append at the bottom of the section.
+4. **Uncategorized Skills & Rule of Three**: If a skill does not fit neatly into an existing pipeline stage or market stack, place it under `Miscellaneous & Other Skills`. When 3 or more related skills accumulate under a distinct theme, they will graduate into an independent category.
 
 ## Pull Request Process
 

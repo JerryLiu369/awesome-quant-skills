@@ -32,7 +32,7 @@ Entries are strictly organized across operational tiers:
   - [Market Feeds & Fundamentals](#market-feeds--fundamentals)
   - [Broker & Exchange Gateways](#broker--exchange-gateways)
 - [Skill-Native Quant Frameworks](#-skill-native-quant-frameworks)
-- [Meta-Tools & Scaffolding](#-meta-tools--scaffolding)
+- [Miscellaneous & Other Skills](#-miscellaneous--other-skills)
 - [Contributing](#-contributing)
 
 ---
@@ -175,9 +175,10 @@ Entries are strictly organized across operational tiers:
 
 ---
 
-## 🛠️ Meta-Tools & Scaffolding
+## 🧪 Miscellaneous & Other Skills
 
-*Skills and utilities that assist quants in strategy scaffolding, syntax translation, and validation.*
+*A staging ground for emerging, experimental, or cross-cutting skills that do not fit neatly into the categories above. When 3+ related skills accumulate here, they will graduate into their own dedicated category.*
+
 - [BoyceFong/quant-skill-build](https://github.com/BoyceFong/quant-skill-build) - Skill authoring and scaffolding builder optimized for Codex and quantitative prompt authoring.
 - [LuxAlgo/PineTS](https://github.com/LuxAlgo/PineTS) - Open-source TypeScript transpiler and headless runtime for Pine Script v5/v6 with `AGENTS.md` and `pinets-cli` tool support.
 - [marketcalls/vectorbt-backtesting-skills](https://github.com/marketcalls/vectorbt-backtesting-skills) - Modular suite of agentic coding skills scaffolding VectorBT strategy development, hyperparameter tuning, and tearsheet evaluation.
