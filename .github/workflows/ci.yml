@@ -21,7 +21,7 @@ jobs:
       - name: Validate catalog.json and SKILL.md paths
         run: |
           python -c "
-          import json, os, sys
+          import json, os, re, sys
           catalog_path = 'data/catalog.json'
           if not os.path.exists(catalog_path):
               sys.exit('Missing data/catalog.json')
@@ -36,8 +36,16 @@ jobs:
               p = item.get('path')
               if not os.path.exists(p):
                   errors.append(f'File not found: {p}')
+                  continue
               elif os.path.getsize(p) == 0:
                   errors.append(f'Empty file: {p}')
+              else:
+                  with open(p, 'r', encoding='utf-8', errors='replace') as f:
+                      text = f.read()
+                  m = re.search(r'^---\s*\n(.*?)---', text, re.S | re.M)
+                  fm = m.group(1) if m else ''
+                  if 'name:' not in fm or 'description:' not in fm:
+                      errors.append(f'Invalid SKILL.md frontmatter (needs name: + description:): {p}')
               if not item.get('license'):
                   errors.append(f'Missing license field: {item.get(\"name\")}')
               if not item.get('upstream_url'):
