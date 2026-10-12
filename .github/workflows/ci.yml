@@ -62,10 +62,22 @@ jobs:
       - name: Check markdown links
         uses: lycheeverse/lychee-action@v2
         with:
+          # Excludes are placeholders / non-GET-checkable URLs, not dead links:
+          # localhost = local-run examples in mirrored skills;
+          # Owner/Repo = CONTRIBUTING template placeholder;
+          # quantbuddy.cn = POST-only API endpoints (GET 404s by design);
+          # financialmodelingprep.com = bot-blocks non-browser agents (403);
+          # fulltextSearch/{code6}, MCP_HOST = template URLs with placeholders.
           args: >-
             --no-progress
             --max-retries 3
-            --accept 100-103,200-299,403,429
+            --exclude 'http://127\.0\.0\.1.*'
+            --exclude 'http://localhost.*'
+            --exclude 'github\.com/Owner/Repo'
+            --exclude 'quantbuddy\.cn/.*'
+            --exclude 'financialmodelingprep\.com/.*'
+            --exclude 'fulltextSearch'
+            --exclude 'MCP_HOST'
             './README.md' './CONTRIBUTING.md' './NOTICE.md' './SECURITY.md'
             './skills/**/*.md'
         env:
