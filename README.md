@@ -63,7 +63,7 @@ This repository doubles as a **quant skill pack**: 33 `SKILL.md` files mirrored 
 - [Skill-Native Quant Frameworks](#-skill-native-quant-frameworks)
 - [Miscellaneous & Other Skills](#-miscellaneous--other-skills)
 - [Contributing](#-contributing)
-- [Disclaimer](#️-disclaimer)
+- [Disclaimer](#-disclaimer)
 - [License](#-license)
 
 ---
