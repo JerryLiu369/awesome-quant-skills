@@ -2,6 +2,8 @@
 
 > A curated directory of **Agent Skills**, **Quant MCP Servers**, and **Skill-Native Systems** for Quantitative Finance, Systematic Research, and Algorithmic Trading — usable from **Claude Code**, **OpenCode**, **Codex**, **Cursor**, **OpenClaw**, **Hermes**, and other `SKILL.md`-compatible harnesses.
 
+**English** | [中文](README.zh-CN.md)
+
 Unlike legacy quant lists cluttered with abandoned libraries, this directory focuses strictly on **autonomous agent capabilities**: machine-executable `SKILL.md` workflows, Model Context Protocol (MCP) tooling, and deterministic quantitative reasoning.
 
 ---
