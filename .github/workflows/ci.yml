@@ -18,38 +18,34 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate catalog.json and SKILL.md paths
+      - name: Validate mirrored SKILL.md files
         run: |
           python -c "
-          import json, os, re, sys
-          catalog_path = 'data/catalog.json'
-          if not os.path.exists(catalog_path):
-              sys.exit('Missing data/catalog.json')
+          import glob, os, re, sys
           for required in ['LICENSE', 'NOTICE.md']:
               if not os.path.exists(required):
                   sys.exit(f'Missing {required} (root license / third-party notices required)')
-          with open(catalog_path, 'r', encoding='utf-8') as f:
-              data = json.load(f)
-          print(f'Total registered skills: {data.get(\"total_skills\")}')
+          with open('NOTICE.md', 'r', encoding='utf-8') as f:
+              notices = f.read()
+          skills = sorted(glob.glob('skills/*/SKILL.md') + glob.glob('skills/*/*/SKILL.md'))
+          if not skills:
+              sys.exit('No mirrored skills found under skills/')
+          print(f'Mirrored skills found: {len(skills)}')
           errors = []
-          for item in data.get('skills', []):
-              p = item.get('path')
-              if not os.path.exists(p):
-                  errors.append(f'File not found: {p}')
-                  continue
-              elif os.path.getsize(p) == 0:
+          for p in skills:
+              if os.path.getsize(p) == 0:
                   errors.append(f'Empty file: {p}')
-              else:
-                  with open(p, 'r', encoding='utf-8', errors='replace') as f:
-                      text = f.read()
-                  m = re.search(r'^---\s*\n(.*?)---', text, re.S | re.M)
-                  fm = m.group(1) if m else ''
-                  if 'name:' not in fm or 'description:' not in fm:
-                      errors.append(f'Invalid SKILL.md frontmatter (needs name: + description:): {p}')
-              if not item.get('license'):
-                  errors.append(f'Missing license field: {item.get(\"name\")}')
-              if not item.get('upstream_url'):
-                  errors.append(f'Missing upstream_url field: {item.get(\"name\")}')
+                  continue
+              with open(p, 'r', encoding='utf-8', errors='replace') as f:
+                  text = f.read()
+              m = re.search(r'^---\s*\n(.*?)---', text, re.S | re.M)
+              fm = m.group(1) if m else ''
+              if 'name:' not in fm or 'description:' not in fm:
+                  errors.append(f'Invalid SKILL.md frontmatter (needs name: + description:): {p}')
+              if 'Imported from:' not in text:
+                  errors.append(f'Missing Imported from header: {p}')
+              if p not in notices:
+                  errors.append(f'Skill not listed in NOTICE.md: {p}')
           if errors:
               print('Validation errors:\n' + '\n'.join(errors))
               sys.exit(1)

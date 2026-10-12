@@ -18,15 +18,13 @@ Entries are strictly organized across operational tiers:
 
 ## 📦 Embedded Skills Library
 
-This repository doubles as a **quant skill pack**: 33 `SKILL.md` files mirrored directly inside [`skills/`](skills/), ready to copy into your agent harness (`~/.claude/skills/`, `~/.agents/skills/`, or Hermes). Two caveats: mirrors are `SKILL.md`-only excerpts — helper scripts and reference docs stay upstream (see each file's `Imported from` header) — and most but not all are permissively licensed: three are GPL-family and one (`quant-buddy`) needs a commercial API backend. Check per-skill licenses in [NOTICE.md](NOTICE.md) and [`data/catalog.json`](data/catalog.json) before redistributing.
+This repository doubles as a **quant skill pack**: 33 `SKILL.md` files mirrored directly inside [`skills/`](skills/), ready to copy into your agent harness (`~/.claude/skills/`, `~/.agents/skills/`, or Hermes). Two caveats: mirrors are `SKILL.md`-only excerpts — helper scripts and reference docs stay upstream (see each file's `Imported from` header) — and most but not all are permissively licensed: three are GPL-family and one (`quant-buddy`) needs a commercial API backend. Check per-skill licenses in [NOTICE.md](NOTICE.md) before redistributing.
 
 - **China A-Shares & Futures**: CTP API, PTrade, TqSdk, TDX, MiniQMT, Wencai, CnInfo, AKQuant.
 - **Alpha & Factors**: Paper-derived factor mining, Alpha Zoo, CANSLIM screeners.
 - **Backtesting & Auditing**: Lookahead bias avoidance, PBO overfitting checks, VectorBT, Purged CV.
 - **Crypto & Web3**: Pine Script developer/debugger/backtester, DefiLlama yields & flows, Perp funding basis.
 - **Global Equities & Risk**: EDGAR 10-K extraction, LLMQuant equities & macro, OpenQuant VaR risk.
-
-*Full machine-readable registry available at [`data/catalog.json`](data/catalog.json).*
 
 ---
 

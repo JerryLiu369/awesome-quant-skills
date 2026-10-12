@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-This repository's own curation work — `README.md`, `data/catalog.json`,
+This repository's own curation work — `README.md`,
 `.github/workflows/`, and `CONTRIBUTING.md` — is released under the
 [MIT License](LICENSE) (Copyright 2026 JerryLiu369).
 
@@ -22,7 +22,7 @@ project. The HTML comment header in each `SKILL.md` records its
 3. Mirrors in this repo are `SKILL.md`-only excerpts. Companion code the skill
    may reference (`scripts/`, `workflows/`, `references/`, bundled configs)
    generally still lives upstream. For runnable use, fetch the full upstream
-   project (see `upstream` links in `data/catalog.json`).
+   project (see the `Imported from` link in the skill's header).
 
 ## Mirrored skills and known licenses
 
@@ -65,5 +65,5 @@ project. The HTML comment header in each `SKILL.md` records its
 If you are an upstream author and want your skill's license recorded
 precisely here (or removed from the mirror), please open an issue or PR —
 the `Imported from` header plus this table is the intended attribution chain.
-New mirrored-skill PRs must record the upstream license in
-`data/catalog.json` (`license` field) and keep this table in sync.
+New mirrored-skill PRs must add a row to the table above with the skill's
+upstream license.
