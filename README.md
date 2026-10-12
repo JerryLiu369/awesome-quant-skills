@@ -16,6 +16,20 @@ Entries are strictly organized across operational tiers:
 
 ---
 
+## 📦 Embedded Skills Library
+
+This repository doubles as an **installable quant skill pack**. Over 30 verified open-source `SKILL.md` packages are mirrored directly inside [`skills/`](skills/), ready to copy into your agent harness (`~/.claude/skills/`, `~/.agents/skills/`, or Hermes):
+
+- **China A-Shares & Futures**: CTP API, PTrade, TqSdk, TDX, MiniQMT, Wencai, CnInfo, AKQuant.
+- **Alpha & Factors**: Paper-derived factor mining, Alpha Zoo, CANSLIM screeners.
+- **Backtesting & Auditing**: Lookahead bias avoidance, PBO overfitting checks, VectorBT, Purged CV.
+- **Crypto & Web3**: Pine Script developer/debugger/backtester, DefiLlama yields & flows, Perp funding basis.
+- **Global Equities & Risk**: EDGAR 10-K extraction, LLMQuant equities & macro, OpenQuant VaR risk.
+
+*Full machine-readable registry available at [`data/catalog.json`](data/catalog.json).*
+
+---
+
 ## 📑 Table of Contents
 
 - [Vertical Market Stacks](#-vertical-market-stacks)

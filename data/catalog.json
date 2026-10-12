@@ -1,0 +1,245 @@
+{
+  "version": "1.0.0",
+  "total_skills": 33,
+  "skills": [
+    {
+      "name": "alpha-zoo",
+      "category": "alpha-factors",
+      "path": "skills/alpha-factors/alpha-zoo/SKILL.md",
+      "upstream": "HKUDS/Vibe-Trading",
+      "size_bytes": 3950
+    },
+    {
+      "name": "breadth-chart-analyst",
+      "category": "alpha-factors",
+      "path": "skills/alpha-factors/breadth-chart-analyst/SKILL.md",
+      "upstream": "tradermonty/claude-trading-skills",
+      "size_bytes": 8971
+    },
+    {
+      "name": "canslim-screener",
+      "category": "alpha-factors",
+      "path": "skills/alpha-factors/canslim-screener/SKILL.md",
+      "upstream": "tradermonty/claude-trading-skills",
+      "size_bytes": 17153
+    },
+    {
+      "name": "factor-mining-pandaai",
+      "category": "alpha-factors",
+      "path": "skills/alpha-factors/factor-mining-pandaai/SKILL.md",
+      "upstream": "quantskills/skill-factor-mining-pandaai",
+      "size_bytes": 10159
+    },
+    {
+      "name": "backtest-review",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/backtest-review/SKILL.md",
+      "upstream": "saksham10arora-dotcom/quant-skills",
+      "size_bytes": 2366
+    },
+    {
+      "name": "backtesting-bias-avoidance",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/backtesting-bias-avoidance/SKILL.md",
+      "upstream": "quantskills/skill-backtesting-bias-avoidance",
+      "size_bytes": 8921
+    },
+    {
+      "name": "data-quality-audit",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/data-quality-audit/SKILL.md",
+      "upstream": "saksham10arora-dotcom/quant-skills",
+      "size_bytes": 2343
+    },
+    {
+      "name": "paper-repro",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/paper-repro/SKILL.md",
+      "upstream": "saksham10arora-dotcom/quant-skills",
+      "size_bytes": 2442
+    },
+    {
+      "name": "pine-backtester",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/pine-backtester/SKILL.md",
+      "upstream": "TradersPost/pinescript-agents",
+      "size_bytes": 15914
+    },
+    {
+      "name": "stats-test-picker",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/stats-test-picker/SKILL.md",
+      "upstream": "saksham10arora-dotcom/quant-skills",
+      "size_bytes": 2545
+    },
+    {
+      "name": "vectorbt-backtest",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/vectorbt-backtest/SKILL.md",
+      "upstream": "marketcalls/vectorbt-backtesting-skills",
+      "size_bytes": 4769
+    },
+    {
+      "name": "vectorbt-optimize",
+      "category": "backtesting-audit",
+      "path": "skills/backtesting-audit/vectorbt-optimize/SKILL.md",
+      "upstream": "marketcalls/vectorbt-backtesting-skills",
+      "size_bytes": 3201
+    },
+    {
+      "name": "akquant",
+      "category": "china-markets",
+      "path": "skills/china-markets/akquant/SKILL.md",
+      "upstream": "lzwme/finance-quant-skills",
+      "size_bytes": 9105
+    },
+    {
+      "name": "ashare-pre-st-filter",
+      "category": "china-markets",
+      "path": "skills/china-markets/ashare-pre-st-filter/SKILL.md",
+      "upstream": "HKUDS/Vibe-Trading",
+      "size_bytes": 19839
+    },
+    {
+      "name": "cninfo-disclosure",
+      "category": "china-markets",
+      "path": "skills/china-markets/cninfo-disclosure/SKILL.md",
+      "upstream": "rollysys/use_cninfo",
+      "size_bytes": 4125
+    },
+    {
+      "name": "ctp-api",
+      "category": "china-markets",
+      "path": "skills/china-markets/ctp-api/SKILL.md",
+      "upstream": "algoderiv/agent-skills",
+      "size_bytes": 4713
+    },
+    {
+      "name": "ptrade-strategy-writing",
+      "category": "china-markets",
+      "path": "skills/china-markets/ptrade-strategy-writing/SKILL.md",
+      "upstream": "xxbbzy/ptrade-agent-skills",
+      "size_bytes": 10532
+    },
+    {
+      "name": "quant-buddy",
+      "category": "china-markets",
+      "path": "skills/china-markets/quant-buddy/SKILL.md",
+      "upstream": "pseudo-longinus/quant-buddy-skills",
+      "size_bytes": 42987
+    },
+    {
+      "name": "ssquant-futures",
+      "category": "china-markets",
+      "path": "skills/china-markets/ssquant-futures/SKILL.md",
+      "upstream": "quantskills/agent-ssquant",
+      "size_bytes": 5158
+    },
+    {
+      "name": "tdxquant",
+      "category": "china-markets",
+      "path": "skills/china-markets/tdxquant/SKILL.md",
+      "upstream": "lingfan/tdxquant-mcp",
+      "size_bytes": 2233
+    },
+    {
+      "name": "tqsdk-trading",
+      "category": "china-markets",
+      "path": "skills/china-markets/tqsdk-trading/SKILL.md",
+      "upstream": "shinnytech/tqsdk-python",
+      "size_bytes": 8266
+    },
+    {
+      "name": "wencai-screener",
+      "category": "china-markets",
+      "path": "skills/china-markets/wencai-screener/SKILL.md",
+      "upstream": "raidery/quant-skills",
+      "size_bytes": 4268
+    },
+    {
+      "name": "defillama-data",
+      "category": "crypto-web3",
+      "path": "skills/crypto-web3/defillama-data/SKILL.md",
+      "upstream": "DefiLlama/defillama-skills",
+      "size_bytes": 8816
+    },
+    {
+      "name": "defillama-flows",
+      "category": "crypto-web3",
+      "path": "skills/crypto-web3/defillama-flows/SKILL.md",
+      "upstream": "DefiLlama/defillama-skills",
+      "size_bytes": 5320
+    },
+    {
+      "name": "defillama-yields",
+      "category": "crypto-web3",
+      "path": "skills/crypto-web3/defillama-yields/SKILL.md",
+      "upstream": "DefiLlama/defillama-skills",
+      "size_bytes": 3880
+    },
+    {
+      "name": "perp-funding-basis",
+      "category": "crypto-web3",
+      "path": "skills/crypto-web3/perp-funding-basis/SKILL.md",
+      "upstream": "HKUDS/Vibe-Trading",
+      "size_bytes": 10855
+    },
+    {
+      "name": "pine-debugger",
+      "category": "crypto-web3",
+      "path": "skills/crypto-web3/pine-debugger/SKILL.md",
+      "upstream": "TradersPost/pinescript-agents",
+      "size_bytes": 17298
+    },
+    {
+      "name": "pine-developer",
+      "category": "crypto-web3",
+      "path": "skills/crypto-web3/pine-developer/SKILL.md",
+      "upstream": "TradersPost/pinescript-agents",
+      "size_bytes": 17503
+    },
+    {
+      "name": "edgar-financials",
+      "category": "global-equities",
+      "path": "skills/global-equities/edgar-financials/SKILL.md",
+      "upstream": "dgunning/edgartools",
+      "size_bytes": 1485
+    },
+    {
+      "name": "llmquant-equities",
+      "category": "global-equities",
+      "path": "skills/global-equities/llmquant-equities/SKILL.md",
+      "upstream": "LLMQuant/skills",
+      "size_bytes": 2273
+    },
+    {
+      "name": "llmquant-macro",
+      "category": "global-equities",
+      "path": "skills/global-equities/llmquant-macro/SKILL.md",
+      "upstream": "LLMQuant/skills",
+      "size_bytes": 2284
+    },
+    {
+      "name": "llmquant-risk",
+      "category": "portfolio-risk",
+      "path": "skills/portfolio-risk/llmquant-risk/SKILL.md",
+      "upstream": "LLMQuant/skills",
+      "size_bytes": 2020
+    },
+    {
+      "name": "openquant-trading",
+      "category": "portfolio-risk",
+      "path": "skills/portfolio-risk/openquant-trading/SKILL.md",
+      "upstream": "mitchellbernstein/openquant",
+      "size_bytes": 8230
+    }
+  ],
+  "categories": [
+    "china-markets",
+    "alpha-factors",
+    "portfolio-risk",
+    "backtesting-audit",
+    "crypto-web3",
+    "global-equities"
+  ]
+}

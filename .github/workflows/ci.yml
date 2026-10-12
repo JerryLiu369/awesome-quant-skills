@@ -1,0 +1,42 @@
+name: CI & Skills Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate catalog.json and SKILL.md paths
+        run: |
+          python -c "
+          import json, os, sys
+          catalog_path = 'data/catalog.json'
+          if not os.path.exists(catalog_path):
+              sys.exit('Missing data/catalog.json')
+          with open(catalog_path, 'r', encoding='utf-8') as f:
+              data = json.load(f)
+          print(f'Total registered skills: {data.get(\"total_skills\")}')
+          errors = []
+          for item in data.get('skills', []):
+              p = item.get('path')
+              if not os.path.exists(p):
+                  errors.append(f'File not found: {p}')
+              elif os.path.getsize(p) == 0:
+                  errors.append(f'Empty file: {p}')
+          if errors:
+              print('Validation errors:\n' + '\n'.join(errors))
+              sys.exit(1)
+          print('All skill files validated successfully.')
+          "
