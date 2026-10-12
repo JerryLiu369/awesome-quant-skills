@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "total_skills": 33,
   "skills": [
     {
@@ -7,231 +7,297 @@
       "category": "alpha-factors",
       "path": "skills/alpha-factors/alpha-zoo/SKILL.md",
       "upstream": "HKUDS/Vibe-Trading",
-      "size_bytes": 3950
+      "size_bytes": 3950,
+      "upstream_url": "https://github.com/HKUDS/Vibe-Trading",
+      "license": "UPSTREAM"
     },
     {
       "name": "breadth-chart-analyst",
       "category": "alpha-factors",
       "path": "skills/alpha-factors/breadth-chart-analyst/SKILL.md",
       "upstream": "tradermonty/claude-trading-skills",
-      "size_bytes": 8971
+      "size_bytes": 8971,
+      "upstream_url": "https://github.com/tradermonty/claude-trading-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "canslim-screener",
       "category": "alpha-factors",
       "path": "skills/alpha-factors/canslim-screener/SKILL.md",
       "upstream": "tradermonty/claude-trading-skills",
-      "size_bytes": 17153
+      "size_bytes": 17153,
+      "upstream_url": "https://github.com/tradermonty/claude-trading-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "factor-mining-pandaai",
       "category": "alpha-factors",
       "path": "skills/alpha-factors/factor-mining-pandaai/SKILL.md",
       "upstream": "quantskills/skill-factor-mining-pandaai",
-      "size_bytes": 10159
+      "size_bytes": 10159,
+      "upstream_url": "https://github.com/quantskills/skill-factor-mining-pandaai",
+      "license": "GPL-3.0-only"
     },
     {
       "name": "backtest-review",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/backtest-review/SKILL.md",
       "upstream": "saksham10arora-dotcom/quant-skills",
-      "size_bytes": 2366
+      "size_bytes": 2366,
+      "upstream_url": "https://github.com/saksham10arora-dotcom/quant-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "backtesting-bias-avoidance",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/backtesting-bias-avoidance/SKILL.md",
       "upstream": "quantskills/skill-backtesting-bias-avoidance",
-      "size_bytes": 8921
+      "size_bytes": 8921,
+      "upstream_url": "https://github.com/quantskills/skill-backtesting-bias-avoidance",
+      "license": "GPL-3.0-only"
     },
     {
       "name": "data-quality-audit",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/data-quality-audit/SKILL.md",
       "upstream": "saksham10arora-dotcom/quant-skills",
-      "size_bytes": 2343
+      "size_bytes": 2343,
+      "upstream_url": "https://github.com/saksham10arora-dotcom/quant-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "paper-repro",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/paper-repro/SKILL.md",
       "upstream": "saksham10arora-dotcom/quant-skills",
-      "size_bytes": 2442
+      "size_bytes": 2442,
+      "upstream_url": "https://github.com/saksham10arora-dotcom/quant-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "pine-backtester",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/pine-backtester/SKILL.md",
       "upstream": "TradersPost/pinescript-agents",
-      "size_bytes": 15914
+      "size_bytes": 15914,
+      "upstream_url": "https://github.com/TradersPost/pinescript-agents",
+      "license": "UPSTREAM"
     },
     {
       "name": "stats-test-picker",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/stats-test-picker/SKILL.md",
       "upstream": "saksham10arora-dotcom/quant-skills",
-      "size_bytes": 2545
+      "size_bytes": 2545,
+      "upstream_url": "https://github.com/saksham10arora-dotcom/quant-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "vectorbt-backtest",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/vectorbt-backtest/SKILL.md",
       "upstream": "marketcalls/vectorbt-backtesting-skills",
-      "size_bytes": 4769
+      "size_bytes": 4769,
+      "upstream_url": "https://github.com/marketcalls/vectorbt-backtesting-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "vectorbt-optimize",
       "category": "backtesting-audit",
       "path": "skills/backtesting-audit/vectorbt-optimize/SKILL.md",
       "upstream": "marketcalls/vectorbt-backtesting-skills",
-      "size_bytes": 3201
+      "size_bytes": 3201,
+      "upstream_url": "https://github.com/marketcalls/vectorbt-backtesting-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "akquant",
       "category": "china-markets",
       "path": "skills/china-markets/akquant/SKILL.md",
       "upstream": "lzwme/finance-quant-skills",
-      "size_bytes": 9105
+      "size_bytes": 9105,
+      "upstream_url": "https://github.com/lzwme/finance-quant-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "ashare-pre-st-filter",
       "category": "china-markets",
       "path": "skills/china-markets/ashare-pre-st-filter/SKILL.md",
       "upstream": "HKUDS/Vibe-Trading",
-      "size_bytes": 19839
+      "size_bytes": 19839,
+      "upstream_url": "https://github.com/HKUDS/Vibe-Trading",
+      "license": "UPSTREAM"
     },
     {
       "name": "cninfo-disclosure",
       "category": "china-markets",
       "path": "skills/china-markets/cninfo-disclosure/SKILL.md",
       "upstream": "rollysys/use_cninfo",
-      "size_bytes": 4125
+      "size_bytes": 4125,
+      "upstream_url": "https://github.com/rollysys/use_cninfo",
+      "license": "UPSTREAM"
     },
     {
       "name": "ctp-api",
       "category": "china-markets",
       "path": "skills/china-markets/ctp-api/SKILL.md",
       "upstream": "algoderiv/agent-skills",
-      "size_bytes": 4713
+      "size_bytes": 4713,
+      "upstream_url": "https://github.com/algoderiv/agent-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "ptrade-strategy-writing",
       "category": "china-markets",
       "path": "skills/china-markets/ptrade-strategy-writing/SKILL.md",
       "upstream": "xxbbzy/ptrade-agent-skills",
-      "size_bytes": 10532
+      "size_bytes": 10532,
+      "upstream_url": "https://github.com/xxbbzy/ptrade-agent-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "quant-buddy",
       "category": "china-markets",
       "path": "skills/china-markets/quant-buddy/SKILL.md",
       "upstream": "pseudo-longinus/quant-buddy-skills",
-      "size_bytes": 42987
+      "size_bytes": 42987,
+      "upstream_url": "https://github.com/pseudo-longinus/quant-buddy-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "ssquant-futures",
       "category": "china-markets",
       "path": "skills/china-markets/ssquant-futures/SKILL.md",
       "upstream": "quantskills/agent-ssquant",
-      "size_bytes": 5158
+      "size_bytes": 5158,
+      "upstream_url": "https://github.com/quantskills/agent-ssquant",
+      "license": "GPL-3.0"
     },
     {
       "name": "tdxquant",
       "category": "china-markets",
       "path": "skills/china-markets/tdxquant/SKILL.md",
       "upstream": "lingfan/tdxquant-mcp",
-      "size_bytes": 2233
+      "size_bytes": 2233,
+      "upstream_url": "https://github.com/lingfan/tdxquant-mcp",
+      "license": "UPSTREAM"
     },
     {
       "name": "tqsdk-trading",
       "category": "china-markets",
       "path": "skills/china-markets/tqsdk-trading/SKILL.md",
       "upstream": "shinnytech/tqsdk-python",
-      "size_bytes": 8266
+      "size_bytes": 8266,
+      "upstream_url": "https://github.com/shinnytech/tqsdk-python",
+      "license": "UPSTREAM"
     },
     {
       "name": "wencai-screener",
       "category": "china-markets",
       "path": "skills/china-markets/wencai-screener/SKILL.md",
       "upstream": "raidery/quant-skills",
-      "size_bytes": 4268
+      "size_bytes": 4268,
+      "upstream_url": "https://github.com/raidery/quant-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "defillama-data",
       "category": "crypto-web3",
       "path": "skills/crypto-web3/defillama-data/SKILL.md",
       "upstream": "DefiLlama/defillama-skills",
-      "size_bytes": 8816
+      "size_bytes": 8816,
+      "upstream_url": "https://github.com/DefiLlama/defillama-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "defillama-flows",
       "category": "crypto-web3",
       "path": "skills/crypto-web3/defillama-flows/SKILL.md",
       "upstream": "DefiLlama/defillama-skills",
-      "size_bytes": 5320
+      "size_bytes": 5320,
+      "upstream_url": "https://github.com/DefiLlama/defillama-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "defillama-yields",
       "category": "crypto-web3",
       "path": "skills/crypto-web3/defillama-yields/SKILL.md",
       "upstream": "DefiLlama/defillama-skills",
-      "size_bytes": 3880
+      "size_bytes": 3880,
+      "upstream_url": "https://github.com/DefiLlama/defillama-skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "perp-funding-basis",
       "category": "crypto-web3",
       "path": "skills/crypto-web3/perp-funding-basis/SKILL.md",
       "upstream": "HKUDS/Vibe-Trading",
-      "size_bytes": 10855
+      "size_bytes": 10855,
+      "upstream_url": "https://github.com/HKUDS/Vibe-Trading",
+      "license": "UPSTREAM"
     },
     {
       "name": "pine-debugger",
       "category": "crypto-web3",
       "path": "skills/crypto-web3/pine-debugger/SKILL.md",
       "upstream": "TradersPost/pinescript-agents",
-      "size_bytes": 17298
+      "size_bytes": 17298,
+      "upstream_url": "https://github.com/TradersPost/pinescript-agents",
+      "license": "UPSTREAM"
     },
     {
       "name": "pine-developer",
       "category": "crypto-web3",
       "path": "skills/crypto-web3/pine-developer/SKILL.md",
       "upstream": "TradersPost/pinescript-agents",
-      "size_bytes": 17503
+      "size_bytes": 17503,
+      "upstream_url": "https://github.com/TradersPost/pinescript-agents",
+      "license": "UPSTREAM"
     },
     {
       "name": "edgar-financials",
       "category": "global-equities",
       "path": "skills/global-equities/edgar-financials/SKILL.md",
       "upstream": "dgunning/edgartools",
-      "size_bytes": 1485
+      "size_bytes": 1485,
+      "upstream_url": "https://github.com/dgunning/edgartools",
+      "license": "UPSTREAM"
     },
     {
       "name": "llmquant-equities",
       "category": "global-equities",
       "path": "skills/global-equities/llmquant-equities/SKILL.md",
       "upstream": "LLMQuant/skills",
-      "size_bytes": 2273
+      "size_bytes": 2273,
+      "upstream_url": "https://github.com/LLMQuant/skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "llmquant-macro",
       "category": "global-equities",
       "path": "skills/global-equities/llmquant-macro/SKILL.md",
       "upstream": "LLMQuant/skills",
-      "size_bytes": 2284
+      "size_bytes": 2284,
+      "upstream_url": "https://github.com/LLMQuant/skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "llmquant-risk",
       "category": "portfolio-risk",
       "path": "skills/portfolio-risk/llmquant-risk/SKILL.md",
       "upstream": "LLMQuant/skills",
-      "size_bytes": 2020
+      "size_bytes": 2020,
+      "upstream_url": "https://github.com/LLMQuant/skills",
+      "license": "UPSTREAM"
     },
     {
       "name": "openquant-trading",
       "category": "portfolio-risk",
       "path": "skills/portfolio-risk/openquant-trading/SKILL.md",
       "upstream": "mitchellbernstein/openquant",
-      "size_bytes": 8230
+      "size_bytes": 8230,
+      "upstream_url": "https://github.com/mitchellbernstein/openquant",
+      "license": "UPSTREAM"
     }
   ],
   "categories": [
@@ -241,5 +307,7 @@
     "backtesting-audit",
     "crypto-web3",
     "global-equities"
-  ]
+  ],
+  "license": "MIT",
+  "license_scope": "MIT covers README/data/.github/CONTRIBUTING; skills/ retains upstream licenses, see NOTICE.md"
 }

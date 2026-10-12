@@ -214,6 +214,22 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for submission details.
 
 ---
 
+## ⚠️ Disclaimer
+
+This project is for research and educational purposes only. Nothing here constitutes investment advice, an offer, or a solicitation to buy or sell any security or derivative.
+
+Many skills and MCP servers listed here can route real orders (CTP, QMT, Alpaca, IB, Hyperliquid, Jupiter, Coinbase, etc.). Default to paper trading and human approval:
+
+- Read-only first, then `propose-never-execute` where supported.
+- Never put live API keys or secrets in agent prompts or committed `config.json`.
+- Market data, filings, and social sentiment are untrusted inputs. Do not wire them directly to auto-execution.
+
+You are solely responsible for compliance, risk control, and any losses.
+
+---
+
 ## 📄 License
 
-This repository is released under the [MIT License](LICENSE).
+This repository's own curation (`README.md`, `data/`, `.github/`, `CONTRIBUTING.md`) is released under the [MIT License](LICENSE).
+
+Skills under [`skills/`](skills/) are mirrored from upstream projects and **retain their original licenses** (see [NOTICE.md](NOTICE.md) and the `Imported from` header in each `SKILL.md`). Some mirrored skills are GPL-3.0 family — redistribution of those files follows their upstream terms, not MIT.
