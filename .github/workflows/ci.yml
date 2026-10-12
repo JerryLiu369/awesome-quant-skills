@@ -33,6 +33,17 @@ jobs:
               sys.exit('No mirrored skills found under skills/')
           print(f'Mirrored skills found: {len(skills)}')
           errors = []
+          for readme in ['README.md', 'README.zh-CN.md']:
+              with open(readme, 'r', encoding='utf-8') as f:
+                  rtext = f.read()
+              if str(len(skills)) not in rtext:
+                  errors.append(f'Mirror count {len(skills)} missing from {readme} (update the skill-pack bullets)')
+          counts = {}
+          for readme in ['README.md', 'README.zh-CN.md']:
+              with open(readme, 'r', encoding='utf-8') as f:
+                  counts[readme] = len(re.findall(r'\]\(https://github.com/', f.read()))
+          if len(set(counts.values())) > 1:
+              errors.append(f'EN/zh directory entry count mismatch: {counts} (keep both READMEs in sync)')
           for p in skills:
               if os.path.getsize(p) == 0:
                   errors.append(f'Empty file: {p}')
