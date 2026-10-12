@@ -1,392 +1,677 @@
 <!--
   Imported from: https://github.com/tradermonty/claude-trading-skills
-  Source Path: docs/en/skills/canslim-screener.md
+  Source Path: skills/canslim-screener/SKILL.md
   Curated for awesome-quant-skills
 -->
 
 ---
-layout: default
-title: CANSLIM Screener
-grand_parent: English
-parent: Skill Guides
-nav_order: 2
-lang_peer: /ja/skills/canslim-screener/
-permalink: /en/skills/canslim-screener/
+name: canslim-screener
+description: Screen US stocks using William O'Neil's CANSLIM growth stock methodology. Use when user requests CANSLIM stock screening, growth stock analysis, momentum stock identification, or wants to find stocks with strong earnings and price momentum following O'Neil's investment system.
 ---
 
-# CANSLIM Screener
-{: .no_toc }
+# CANSLIM Stock Screener - Phase 3 (Full CANSLIM)
 
-Screen US stocks using William O'Neil's proven CANSLIM growth stock methodology. Phase 3 implements all 7 components for 100% methodology coverage.
-{: .fs-6 .fw-300 }
+## Overview
 
-[Download Skill Package (.skill)](https://github.com/tradermonty/claude-trading-skills/raw/main/skill-packages/canslim-screener.skill){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View Source on GitHub](https://github.com/tradermonty/claude-trading-skills/tree/main/skills/canslim-screener){: .btn .fs-5 .mb-4 .mb-md-0 }
+This skill screens US stocks using William O'Neil's proven CANSLIM methodology, a systematic approach for identifying growth stocks with strong fundamentals and price momentum. CANSLIM analyzes 7 key components: **C**urrent Earnings, **A**nnual Growth, **N**ewness/New Highs, **S**upply/Demand, **L**eadership/RS Rank, **I**nstitutional Sponsorship, and **M**arket Direction.
 
-<details open markdown="block">
-  <summary>Table of Contents</summary>
-  {: .text-delta }
-- TOC
-{:toc}
-</details>
+**Phase 3** implements all 7 of 7 components (C, A, N, S, L, I, M), representing **100% of the full methodology**.
+
+**Two-Stage Approach:**
+1. **Stage 1 (FMP API + Finviz)**: Analyze stock universe with all 7 CANSLIM components
+2. **Stage 2 (Reporting)**: Rank by composite score and generate actionable reports
+
+**Key Features:**
+- Composite scoring (0-100 scale) with weighted components
+- **Finviz fallback** for institutional ownership data (automatic when FMP data incomplete)
+- Progressive filtering to optimize API usage
+- JSON + Markdown output formats
+- Interpretation bands: Exceptional+ (90+), Exceptional (80-89), Strong (70-79), Above Average (60-69)
+- Bear market protection (M component gating)
+
+**Phase 3.1 Component Weights (Original O'Neil weights):**
+- C (Current Earnings): 15%
+- A (Annual Growth): 20%
+- N (Newness): 15%
+- S (Supply/Demand): 15%
+- L (Leadership/RS Rank): 20% — multi-period weighted RS (3m/6m/12m vs configurable benchmark)
+- I (Institutional): 10%
+- M (Market Direction): 5%
+
+**Weighted RS Formula:**
+```
+Weighted RS = 0.40 × rel_3m + 0.30 × rel_6m + 0.30 × rel_12m
+```
+Available periods are re-normalized when some are missing. Default benchmark is `^GSPC`;
+override with `--rs-benchmark SPY/QQQ/IWM/...`.
+
+**Fallback hierarchy when multi-period data is incomplete:**
+1. No benchmark → weighted absolute stock performance + 20% penalty.
+2. All multi-period windows missing but >=50 bars of price history → fall back to the
+   legacy 365-day full-window absolute return as the scoring input (20% penalty if no
+   benchmark).
+3. <50 bars of price history → score=0 with `error` set.
+
+**Future Phases:**
+- Phase 4: FINVIZ Elite integration → 10x faster execution
 
 ---
 
-## 1. Overview
+## When to Use This Skill
 
-The CANSLIM Screener applies William O'Neil's growth stock selection system -- developed from studying every major stock winner from 1953 to the present. The methodology identifies 7 common traits that multi-bagger stocks exhibit before their major price advances.
+**Explicit Triggers:**
+- "Find CANSLIM stocks"
+- "Screen for growth stocks using O'Neil's method"
+- "Which stocks have strong earnings and momentum?"
+- "Identify stocks near 52-week highs with accelerating earnings"
+- "Run a CANSLIM screener on [sector/universe]"
 
-**What it solves:**
-- Systematically scores stocks across the 7 CANSLIM dimensions instead of relying on subjective judgment
-- Provides composite ratings (0-100) with clear interpretation bands
-- Protects against buying in bear markets (M component gates all recommendations)
-- Automates the labor-intensive process of analyzing earnings, growth, momentum, institutional activity, and market conditions
+**Implicit Triggers:**
+- User wants to identify multi-bagger candidates
+- User is looking for growth stocks with proven fundamentals
+- User wants systematic stock selection based on historical winners
+- User needs a ranked list of stocks meeting O'Neil's criteria
 
-**Phase 3 implements all 7 components:**
-
-| Component | Weight | What It Measures |
-|-----------|--------|-----------------|
-| **C** - Current Earnings | 15% | Quarterly EPS and revenue growth (YoY) |
-| **A** - Annual Growth | 20% | 3-year EPS CAGR and stability |
-| **N** - Newness | 15% | Distance from 52-week high, breakout detection |
-| **S** - Supply/Demand | 15% | Volume-based accumulation/distribution |
-| **L** - Leadership | 20% | Multi-period RS (3m/6m/12m vs configurable benchmark, default ^GSPC) |
-| **I** - Institutional | 10% | Holder count + ownership % (with Finviz fallback) |
-| **M** - Market Direction | 5% | S&P 500 trend vs 50-day EMA |
+**When NOT to Use:**
+- Value investing focus (use value-dividend-screener instead)
+- Income/dividend focus (use dividend-growth-pullback-screener instead)
+- Bear market conditions (M component will flag - consider raising cash)
 
 ---
 
-## 2. Prerequisites
-
-> FMP API key is required. The free tier (250 calls/day) supports up to 35 stocks per run. Use `--max-candidates 35` to stay within the limit.
-{: .api_required }
+## Prerequisites
 
 **API Requirements:**
-- **FMP API key** -- Free tier: 250 calls/day. Starter tier ($29.99/mo): 750 calls/day for full 40-stock screening.
-- Sign up: [https://site.financialmodelingprep.com/developer/docs](https://site.financialmodelingprep.com/developer/docs)
+- **FMP API key** (free tier: 250 calls/day, sufficient for 35 stocks; Starter tier $29.99/mo for 40+ stocks)
+  - Sign up: https://site.financialmodelingprep.com/developer/docs
+  - Set via environment variable: `export FMP_API_KEY=your_key_here`
 
 **Python Dependencies:**
-- Python 3.7+
+- Python 3.9+
 - `requests` (FMP API calls)
-- `beautifulsoup4` (Finviz web scraping for I component fallback)
+- `beautifulsoup4` (Finviz web scraping)
 - `lxml` (HTML parsing)
 
+**Installation:**
 ```bash
 pip install requests beautifulsoup4 lxml
 ```
 
-**API Budget (Phase 3):**
-- 40 stocks x 7 FMP calls/stock = 280 FMP calls
-- Market data (S&P 500 quote, VIX, 52-week history): 3 calls
-- Total: ~283 FMP calls per run (exceeds 250 free tier)
-- **Recommendation:** Use `--max-candidates 35` for free tier (248 calls), or upgrade to Starter
+---
+
+## Output
+
+**Output Directory:** `reports/` (default) or custom via `--output-dir`
+
+**Generated Files:**
+- `canslim_screener_YYYY-MM-DD_HHMMSS.json` - Structured data for programmatic use
+- `canslim_screener_YYYY-MM-DD_HHMMSS.md` - Human-readable report
+
+**Report Contents:**
+- Market Condition Summary (trend, M score, warnings)
+- Top N CANSLIM Candidates (ranked by composite score)
+- Component Breakdown for each stock (C, A, N, S, L, I, M scores with details)
+- Rating interpretation (Exceptional+/Exceptional/Strong/Above Average)
+- Quality warnings and data source notes
+- Summary statistics (rating distribution)
+
+**Rating Bands:**
+- **Exceptional+ (90-100):** All components near-perfect, aggressive buy
+- **Exceptional (80-89):** Outstanding fundamentals + momentum, strong buy
+- **Strong (70-79):** Solid across components, standard buy
+- **Above Average (60-69):** Meets thresholds with minor weaknesses, buy on pullback
 
 ---
 
-## 3. Quick Start
+## Workflow
+
+### Step 1: Verify API Access and Requirements
+
+Check if user has FMP API key configured:
 
 ```bash
-# Set your API key
-export FMP_API_KEY=your_key_here
+# Check environment variable
+echo $FMP_API_KEY
 
-# Run with default S&P 500 universe (top 40 by market cap)
-python3 skills/canslim-screener/scripts/screen_canslim.py --output-dir reports/
-
-# Free tier optimization (35 stocks max)
-python3 skills/canslim-screener/scripts/screen_canslim.py \
-  --max-candidates 35 --output-dir reports/
+# If not set, prompt user to provide it
 ```
 
-Or simply tell Claude:
+**Requirements:**
+- **FMP API key** (free tier: 250 calls/day, sufficient for 40 stocks)
+- **Python 3.9+** with required libraries:
+  - `requests` (FMP API calls)
+  - `beautifulsoup4` (Finviz web scraping)
+  - `lxml` (HTML parsing)
 
-```
-Run a CANSLIM screen on the top 35 S&P 500 stocks
-```
-
----
-
-## 4. How It Works
-
-The screener operates in a two-stage pipeline:
-
-**Stage 1 -- Data Collection & Scoring (FMP API + Finviz):**
-1. Fetch S&P 500 historical data for M component (market direction) and L component (relative strength benchmark)
-2. For each stock, make 7 FMP API calls: profile, quote, income statement (2 periods), 90-day history, 365-day history, institutional holders
-3. Calculate all 7 component scores using dedicated calculator modules
-4. When FMP institutional data is incomplete, automatically fall back to Finviz web scraping for ownership percentage
-
-**Stage 2 -- Ranking & Reporting:**
-1. Calculate composite weighted score: C(15%) + A(20%) + N(15%) + S(15%) + L(20%) + I(10%) + M(5%)
-2. Rank all stocks by composite score (highest first)
-3. Generate JSON output for programmatic use and Markdown report for human review
-
-**Finviz fallback behavior:**
-- Triggers automatically when FMP `sharesOutstanding` is unavailable
-- Scrapes institutional ownership % from Finviz.com (free, no API key needed)
-- Rate-limited at 2.0 seconds per request
-- Improves I component accuracy from 35/100 (partial data) to 60-100/100 (full data)
-
----
-
-## 5. Usage Examples
-
-### Example 1: Default S&P 500 Screening
-
-**Prompt:**
-```
-Screen the S&P 500 for CANSLIM stocks
+**Installation:**
+```bash
+pip install requests beautifulsoup4 lxml
 ```
 
-**What happens:** Claude runs the screener against the default universe of 40 stocks (top S&P 500 by market cap). Takes approximately 2 minutes. Generates a ranked report with composite scores and component breakdowns.
+If API key is missing, guide user to:
+1. Sign up at https://site.financialmodelingprep.com/developer/docs
+2. Get free API key (250 calls/day)
+3. Set environment variable: `export FMP_API_KEY=your_key_here`
 
-**Why useful:** The quickest way to identify the strongest growth stocks in the large-cap universe using a proven methodology.
+### Step 2: Determine Stock Universe
 
----
+**Option A: Default Universe (Recommended)**
+Use top 40 S&P 500 stocks by market cap (predefined in script):
 
-### Example 2: Semiconductor Sector Focus
+```bash
+python3 skills/canslim-screener/scripts/screen_canslim.py
+```
 
-**Command:**
+**Option B: Custom Universe**
+User provides specific symbols or sector:
+
 ```bash
 python3 skills/canslim-screener/scripts/screen_canslim.py \
-  --universe NVDA AMD QCOM AVGO TXN INTC MU MRVL AMAT LRCX \
-  --output-dir reports/
+  --universe AAPL MSFT GOOGL AMZN NVDA META TSLA
 ```
 
-**Why useful:** Narrows the analysis to a single high-growth sector. Useful when you already have a sector thesis and want to rank the best candidates within it using CANSLIM criteria.
+**Option C: Sector-Specific**
+User can provide sector-focused list (Technology, Healthcare, etc.)
 
----
+**API Budget Considerations (Phase 3):**
+- 40 stocks × 7 FMP calls/stock = 280 API calls
+  - FMP: 7 calls/stock (profile, quote, income×2, historical_90d, historical_365d, institutional)
+  - Finviz: ~1.8 calls/stock (institutional ownership fallback, 2s rate limit, not counted in FMP budget)
+- Market data (^GSPC quote, ^VIX quote, ^GSPC 52-week history): 3 FMP calls
+- Total: ~283 FMP calls per screening run (exceeds 250 free tier)
+- **Recommendation**: Use `--max-candidates 35` for free tier (35 × 7 + 3 = 248 calls), or upgrade to FMP Starter tier ($29.99/mo, 750 calls/day) for full 40-stock screening
 
-### Example 3: Free Tier Optimization
+### Step 3: Execute CANSLIM Screening Script
 
-**Command:**
+Run the main screening script with appropriate parameters:
+
 ```bash
-python3 skills/canslim-screener/scripts/screen_canslim.py \
-  --max-candidates 35 --top 10 --output-dir reports/
+cd skills/canslim-screener/scripts
+
+# Basic run (40 stocks, top 20 in report)
+python3 screen_canslim.py --api-key $FMP_API_KEY
+
+# Custom parameters
+python3 screen_canslim.py \
+  --api-key $FMP_API_KEY \
+  --max-candidates 40 \
+  --top 20 \
+  --output-dir ../../../
+
+# Custom RS benchmark (Phase 3.1)
+python3 screen_canslim.py --rs-benchmark SPY
+
+# Disable L component (saves per-stock 365-day fetch; L fixed at neutral 50)
+python3 screen_canslim.py --disable-rs
 ```
 
-**Why useful:** Stays within the FMP free tier limit (250 calls/day) while still analyzing a meaningful universe. The `--top 10` flag keeps the report focused on the strongest candidates.
+**Script Workflow (Phase 3 - Full CANSLIM):**
+1. **Market Direction (M)**: Analyze S&P 500 trend vs 50-day EMA (using real historical data for accurate EMA)
+   - If bear market detected (M=0), warn user to raise cash
+2. **S&P 500 Historical Data**: Fetch 52-week data for M component EMA and L component RS calculation
+3. **Stock Analysis**: For each stock, calculate:
+   - **C Component**: Quarterly EPS/revenue growth (YoY)
+   - **A Component**: 3-year EPS CAGR and stability
+   - **N Component**: Distance from 52-week high, breakout detection
+   - **S Component**: Volume-based accumulation/distribution (up-day vs down-day volume)
+   - **L Component**: 52-week Relative Strength vs S&P 500
+   - **I Component**: Institutional holder count + ownership % (with Finviz fallback)
+4. **Composite Scoring**: Weighted average with all 7 component breakdown
+5. **Ranking**: Sort by composite score (highest first)
+6. **Reporting**: Generate JSON + Markdown outputs
 
----
+**Expected Execution Time (Phase 3):**
+- 40 stocks: **~2 minutes** (additional 52-week history fetch per stock for L component)
+- Finviz fallback adds ~2 seconds per stock (rate limiting)
+- L component requires 365-day historical data for each stock
 
-### Example 4: Component Deep Dive
+**Finviz Fallback Behavior:**
+- Triggers automatically when FMP `sharesOutstanding` unavailable
+- Scrapes institutional ownership % from Finviz.com (free, no API key)
+- Increases I component accuracy from 35/100 (partial data) to 60-100/100 (full data)
+- User sees: `✅ Using Finviz institutional ownership for NVDA: 68.3%`
 
-After running a screen, examine the component breakdown for a top-scoring stock:
+### Step 4: Read and Parse Screening Results
 
+The script generates two output files:
+- `canslim_screener_YYYY-MM-DD_HHMMSS.json` - Structured data
+- `canslim_screener_YYYY-MM-DD_HHMMSS.md` - Human-readable report
+
+Read the Markdown report to identify top candidates:
+
+```bash
+# Find the latest report
+ls -lt canslim_screener_*.md | head -1
+
+# Read the report
+cat canslim_screener_YYYY-MM-DD_HHMMSS.md
 ```
-Score: 92.3 / 100 (Exceptional+)
-  C (Current Earnings): 100/100 - EPS +58% QoQ, Revenue +32%
-  A (Annual Growth):     95/100 - 3yr EPS CAGR 42%, consistent growth
-  N (Newness):           98/100 - Within 2% of 52-week high, volume breakout
-  S (Supply/Demand):     85/100 - Up/Down Volume Ratio 1.65 (Accumulation)
-  L (Leadership):        92/100 - 52wk: +45% (+22% vs S&P 500), RS 88
-  I (Institutional):     90/100 - 6,199 holders, 68.3% ownership
-  M (Market Direction): 100/100 - Strong uptrend, S&P above 50-day EMA
+
+**Report Structure (Phase 3 - Full CANSLIM):**
+- Market Condition Summary (trend, M score, warnings)
+- Top N CANSLIM Candidates (ranked, N = --top parameter)
+- For each stock:
+  - Composite Score and Rating (Exceptional+/Exceptional/Strong/etc.)
+  - Component Breakdown (C, A, N, S, L, I, M scores with details)
+  - Interpretation (rating description, guidance, weakest component)
+  - Warnings (quality issues, market conditions, data source notes)
+- Summary Statistics (rating distribution)
+- Methodology note (Phase 3: 7 components, 100% coverage)
+
+**Component Details in Report:**
+- **S Component**: "Up/Down Volume Ratio: 1.06 ✓ Accumulation"
+- **L Component (Phase 3.1)**: "3m/6m/12m: +12.4%/+18.7%/+44.1% (rel +5.2%/+8.3%/+22.0%) | RS: 88 (Strong)"
+- **I Component**: "6199 holders, 68.3% ownership ⭐ Superinvestor"
+
+A new **Summary Table** appears above the candidate list in Phase 3.1 reports, showing
+rank, symbol, composite score, rating, RS rating, and RS percentile for quick scanning.
+
+### Step 5: Analyze Top Candidates and Provide Recommendations
+
+Review the top-ranked stocks and cross-reference with knowledge bases:
+
+**Reference Documents to Consult:**
+1. `references/interpretation_guide.md` - Understand rating bands and portfolio sizing
+2. `references/canslim_methodology.md` - Deep dive into component meanings (now includes S and I)
+3. `references/scoring_system.md` - Understand scoring formulas (Phase 3 weights)
+
+**Analysis Framework:**
+
+For **Exceptional+ stocks (90-100 points)**:
+- All components near-perfect (C≥85, A≥85, N≥85, S≥80, L≥85, I≥80, M≥80)
+- Guidance: Immediate buy, aggressive position sizing (15-20% of portfolio)
+- Example: "NVDA scores 97.2 - explosive quarterly earnings (100), strong 3-year growth (95), at new highs (98), volume accumulation (85), RS leader (92), strong institutional support (90), uptrend market (100)"
+
+For **Exceptional stocks (80-89 points)**:
+- Outstanding fundamentals + strong momentum
+- Guidance: Strong buy, standard sizing (10-15% of portfolio)
+
+For **Strong stocks (70-79 points)**:
+- Solid across all components, minor weaknesses
+- Guidance: Buy, standard sizing (8-12% of portfolio)
+- Phase 3 Example: "Stock scores 77.5 - strong earnings (85), solid growth (80), near high (70), accumulation (60), RS leader (75), good institutions (60), uptrend (90)"
+
+For **Above Average stocks (60-69 points)**:
+- Meets thresholds, one component weak
+- Guidance: Buy on pullback, conservative sizing (5-8% of portfolio)
+
+**Bear Market Override:**
+- If M component = 0 (bear market detected), **do NOT buy** regardless of other scores
+- Guidance: Raise 80-100% cash, wait for market recovery
+- CANSLIM does not work in bear markets (3 out of 4 stocks follow market trend)
+
+### Step 6: Generate User-Facing Report
+
+Create a concise, actionable summary for the user:
+
+**Report Format:**
+
+```markdown
+# CANSLIM Stock Screening Results (Phase 3 - Full CANSLIM)
+**Date:** YYYY-MM-DD
+**Market Condition:** [Trend] - M Score: [X]/100
+**Stocks Analyzed:** [N]
+**Components:** C, A, N, S, L, I, M (7 of 7, 100% coverage)
+
+## Market Summary
+[2-3 sentences on current market environment based on M component]
+[If bear market: WARNING - Consider raising cash allocation]
+
+## Top 5 CANSLIM Candidates
+
+### 1. [SYMBOL] - [Company Name] ⭐⭐⭐
+**Score:** [X.X]/100 ([Rating])
+**Price:** $[XXX.XX] | **Sector:** [Sector]
+
+**Component Breakdown:**
+- C (Earnings): [X]/100 - [EPS growth]% QoQ, [Revenue growth]% revenue
+- A (Growth): [X]/100 - [CAGR]% 3yr EPS CAGR
+- N (Newness): [X]/100 - [Distance]% from 52wk high
+- S (Supply/Demand): [X]/100 - Up/Down Volume Ratio: [X.XX]
+- L (Leadership): [X]/100 - 52wk: [+X.X]% ([+X.X]% vs S&P) RS: [XX]
+- I (Institutional): [X]/100 - [N] holders, [X.X]% ownership [⭐ Superinvestor if present]
+- M (Market): [X]/100 - [Trend]
+
+**Interpretation:** [Rating description and guidance]
+**Weakest Component:** [X] ([score])
+**Data Source Note:** [If Finviz used: "Institutional data from Finviz"]
+
+[Repeat for top 5 stocks]
+
+## Investment Recommendations
+
+**Immediate Buy List (90+ score):**
+- [List stocks with exceptional+ ratings]
+- Position sizing: 15-20% each
+
+**Strong Buy List (80-89 score):**
+- [List stocks with exceptional ratings]
+- Position sizing: 10-15% each
+
+**Watchlist (70-79 score):**
+- [List stocks with strong ratings]
+- Buy on pullback
+
+## Risk Factors
+- [Identify any quality warnings from components]
+- [Market condition warnings]
+- [Sector concentration risks if applicable]
+- [Data source reliability notes if Finviz heavily used]
+
+## Next Steps
+1. Conduct detailed fundamental analysis on top 3 candidates
+2. Check earnings calendars for upcoming reports
+3. Review technical charts for entry timing
+4. [If bear market: Wait for market recovery before deploying capital]
+
+---
+**Note:** This is Phase 3 (Full CANSLIM: C, A, N, S, L, I, M - 100% coverage).
 ```
 
-**Why useful:** Understanding which components drive the score helps you assess whether the stock's strength is broad-based or concentrated in one area. Stocks with high scores across all components are the most reliable.
+---
+
+## Resources
+
+### Scripts Directory (`scripts/`)
+
+**Main Scripts:**
+- `screen_canslim.py` - Main orchestrator script
+  - Entry point for screening workflow
+  - Handles argument parsing, API coordination, ranking, reporting
+  - Usage: `python3 screen_canslim.py --api-key KEY [options]`
+
+- `fmp_client.py` - FMP API client wrapper
+  - Rate limiting (0.3s between calls)
+  - 429 error handling with 60s retry
+  - Session-based caching
+  - Methods: `get_income_statement()`, `get_quote()`, `get_historical_prices()`, `get_institutional_holders()`
+
+- `finviz_stock_client.py` - Finviz web scraping client ← **NEW**
+  - BeautifulSoup-based HTML parsing
+  - Fetches institutional ownership % from Finviz.com
+  - Rate limiting (2.0s between calls)
+  - No API key required (free web scraping)
+  - Methods: `get_institutional_ownership()`, `get_stock_data()`
+
+**Calculators (`scripts/calculators/`):**
+- `earnings_calculator.py` - C component (Current Earnings)
+  - Quarterly EPS/revenue growth (YoY)
+  - Scoring: 50%+ = 100pts, 30-49% = 80pts, 18-29% = 60pts
+
+- `growth_calculator.py` - A component (Annual Growth)
+  - 3-year EPS CAGR calculation
+  - Stability check (no negative growth years)
+  - Scoring: 40%+ = 90pts, 30-39% = 70pts, 25-29% = 50pts
+
+- `new_highs_calculator.py` - N component (Newness)
+  - Distance from 52-week high
+  - Volume-confirmed breakout detection
+  - Scoring: 5% of high + breakout = 100pts, 10% + breakout = 80pts
+
+- `supply_demand_calculator.py` - S component (Supply/Demand) ← **NEW**
+  - Volume-based accumulation/distribution analysis
+  - Up-day volume vs down-day volume ratio (60-day lookback)
+  - Scoring: ratio ≥2.0 = 100pts, 1.5-2.0 = 80pts, 1.0-1.5 = 60pts
+
+- `leadership_calculator.py` - L component (Leadership/Relative Strength)
+  - 52-week stock performance vs S&P 500 benchmark
+  - RS Rank estimation (1-99 scale, O'Neil style)
+  - Scoring: RS 90+ outperforming market = 100pts, RS 80-89 = 80pts
+
+- `institutional_calculator.py` - I component (Institutional)
+  - Institutional holder count (from FMP)
+  - Ownership % (from FMP or Finviz fallback)
+  - Superinvestor detection (Berkshire Hathaway, Baupost, etc.)
+  - Scoring: 50-100 holders + 30-60% ownership = 100pts
+
+- `market_calculator.py` - M component (Market Direction)
+  - S&P 500 vs 50-day EMA
+  - VIX-adjusted scoring
+  - Scoring: Strong uptrend = 100pts, Uptrend = 80pts, Bear market = 0pts
+
+**Supporting Modules:**
+- `scorer.py` - Composite score calculation
+  - Phase 3 weighted average: C×15% + A×20% + N×15% + S×15% + L×20% + I×10% + M×5%
+  - Rating interpretation (Exceptional+/Exceptional/Strong/etc.)
+  - Minimum threshold validation (all 7 components must meet baseline)
+
+- `report_generator.py` - Output generation
+  - JSON export (programmatic use)
+  - Markdown export (human-readable)
+  - Phase 3 component breakdown tables (all 7 components)
+  - Summary statistics calculation
+
+### References Directory (`references/`)
+
+**Knowledge Bases:**
+- `references/canslim_methodology.md` (27KB) - Complete CANSLIM explanation
+  - All 7 components with O'Neil's original thresholds
+  - S component (Volume accumulation/distribution) detailed explanation
+  - L component (Leadership/Relative Strength) detailed explanation
+  - I component (Institutional sponsorship) detailed explanation
+  - Historical examples (AAPL 2009, NFLX 2013, TSLA 2019, NVDA 2023)
+
+- `references/scoring_system.md` (21KB) - Technical scoring specification (Phase 3)
+  - Phase 3 component weights and formulas (all 7 components)
+  - Interpretation bands (90-100, 80-89, etc.)
+  - Minimum thresholds for all 7 components
+  - Composite score calculation examples
+
+- `references/fmp_api_endpoints.md` (18KB) - API integration guide (Phase 3)
+  - Required endpoints for all 7 components
+  - L component: 52-week historical prices endpoint
+  - Institutional holder endpoint documentation
+  - Finviz fallback strategy explanation
+  - Rate limiting strategy
+  - Cost analysis (Phase 3: ~283 FMP calls for 40 stocks, exceeds 250 free tier)
+
+- `references/interpretation_guide.md` (18KB) - User guidance
+  - Portfolio construction rules
+  - Position sizing by rating
+  - Entry/exit strategies
+  - Bear market protection rules
+
+**How to Use References:**
+- Read `references/canslim_methodology.md` first to understand O'Neil's system (now includes S and I)
+- Consult `references/interpretation_guide.md` when analyzing results
+- Reference `references/scoring_system.md` if scores seem unexpected
+- Check `references/fmp_api_endpoints.md` for API troubleshooting or Finviz fallback issues
 
 ---
 
-### Example 5: Bear Market Scenario
+## Troubleshooting
 
-When the M component detects a bear market (S&P 500 below 50-day EMA, VIX elevated):
+### Issue 1: FMP API Rate Limit Exceeded
 
+**Symptoms:**
 ```
-Market Condition: BEAR MARKET DETECTED
-M Score: 0/100
-
-WARNING: CANSLIM methodology recommends raising 80-100% cash in bear markets.
-3 out of 4 stocks follow the market trend. Do NOT initiate new positions.
+ERROR: 429 Too Many Requests - Rate limit exceeded
+Retrying in 60 seconds...
 ```
 
-**Why useful:** The M component acts as a circuit breaker. Even if individual stocks score 90+ on other components, CANSLIM's historical data shows that buying in confirmed bear markets has a poor win rate. This protects capital.
+**Causes:**
+- Running multiple screenings within short time window
+- Exceeding 250 calls/day (free tier limit)
+- Other applications using same API key
 
----
+**Solutions:**
+1. **Wait and Retry**: Script auto-retries after 60s
+2. **Reduce Universe**: Use `--max-candidates 30` to lower API usage
+3. **Check Daily Usage**: Free tier resets at midnight UTC
+4. **Upgrade Plan**: FMP Starter ($29.99/month) provides 750 calls/day
 
-### Example 6: Interpreting Score Ranges
+### Issue 2: Missing Required Libraries
 
-| Rating | Score | Guidance | Position Sizing |
-|--------|-------|----------|----------------|
-| Exceptional+ | 90-100 | All components near-perfect. Aggressive buy | 15-20% of portfolio |
-| Exceptional | 80-89 | Outstanding fundamentals + momentum. Strong buy | 10-15% of portfolio |
-| Strong | 70-79 | Solid across components, minor weaknesses. Standard buy | 8-12% of portfolio |
-| Above Average | 60-69 | Meets thresholds with one weak component. Buy on pullback | 5-8% of portfolio |
-
-**Why useful:** The interpretation bands translate abstract scores into concrete position sizing guidance, aligning risk exposure with conviction level.
-
----
-
-## 6. Understanding the Output
-
-The screener generates two files:
-- `canslim_screener_YYYY-MM-DD_HHMMSS.json` -- Structured data for programmatic use
-- `canslim_screener_YYYY-MM-DD_HHMMSS.md` -- Human-readable report
-
-**Report sections:**
-1. **Market Condition Summary** -- Current trend, M score, and warnings
-2. **Top N CANSLIM Candidates** -- Ranked by composite score with:
-   - Composite score and rating band
-   - Individual component scores with explanatory details
-   - Data source notes (e.g., "Institutional data from Finviz")
-   - Weakest component identification
-3. **Summary Statistics** -- Distribution of ratings (how many Exceptional+, Exceptional, Strong, etc.)
-4. **Methodology Note** -- Phase 3: 7 components, 100% coverage
-
-**Quality warnings to watch for:**
-- "Revenue declining despite EPS growth" -- Possible buyback distortion
-- "Using Finviz institutional ownership data" -- Data source switched (still accurate)
-- "Bear market detected" -- M component = 0, do not buy
-
----
-
-## 7. Tips & Best Practices
-
-- **Always check the M component first.** If M = 0, the rest of the scores are irrelevant from a CANSLIM perspective. Raise cash and wait.
-- **Look for broad strength.** A score of 85 with all components above 70 is more reliable than a score of 85 with one component at 100 and another at 40.
-- **Use `--max-candidates 35` for free tier.** This is the sweet spot for the 250 calls/day FMP free tier limit.
-- **Run weekly, not daily.** CANSLIM is a weekly screening methodology. Earnings data updates quarterly, and most components are stable week-to-week.
-- **Cross-reference with charts.** CANSLIM identifies fundamentally strong stocks, but entry timing matters. Use the Technical Analyst skill for chart-based entry confirmation.
-- **Finviz fallback is reliable.** Testing showed 100% success rate (39/39 stocks) with ~2.5 seconds per request. The data quality is equivalent to FMP.
-
----
-
-## 8. Combining with Other Skills
-
-| Workflow | Steps |
-|----------|-------|
-| **Full growth stock pipeline** | CANSLIM Screener (rank candidates) > Technical Analyst (confirm chart setup) > Position Sizer (calculate shares) |
-| **CANSLIM + VCP** | Run CANSLIM to identify growth leaders, then check if top candidates also show VCP patterns via VCP Screener |
-| **Pre-filter with FinViz** | Use FinViz Screener (`fa_epsqoq_o25,ta_sma200_pa,ta_highlow52w_b0to10h`) to build a custom universe, then pass those tickers to CANSLIM Screener with `--universe` |
-| **Earnings confirmation** | After CANSLIM ranks candidates, check Earnings Calendar for upcoming report dates to avoid entering before volatile events |
-| **Bear market protection** | When CANSLIM M = 0, switch to Market Environment Analysis and Breadth Chart Analyst to monitor for recovery signals |
-
----
-
-## 9. Troubleshooting
-
-### FMP API rate limit exceeded (429 error)
-
-The script automatically retries after 60 seconds. If the error persists:
-- Reduce the universe: `--max-candidates 30`
-- Check daily usage: free tier resets at midnight UTC
-- Upgrade to FMP Starter ($29.99/mo) for 750 calls/day
-
-### Missing Python libraries
-
+**Symptoms:**
 ```
 ERROR: required libraries not found. Install with: pip install beautifulsoup4 requests lxml
 ```
 
-Install all dependencies:
+**Solutions:**
 ```bash
+# Install all required libraries
 pip install requests beautifulsoup4 lxml
+
+# Or install individually
+pip install beautifulsoup4
+pip install requests
+pip install lxml
 ```
 
-### Finviz web scraping failure (403 error)
+### Issue 3: Finviz Fallback Slow Execution
 
-This occurs when Finviz blocks scraping requests. The script degrades gracefully:
+**Symptoms:**
+```
+Execution time: 2 minutes 30 seconds for 40 stocks (slower than expected)
+```
+
+**Causes:**
+- Finviz rate limiting (2.0s per request)
+- All stocks triggering fallback due to FMP data gaps
+
+**Solutions:**
+1. **Accept Delay**: 1-2 minutes for 40 stocks is normal with Finviz fallback
+2. **Monitor Fallback Usage**: Check logs for "Using Finviz institutional ownership" messages
+3. **Reduce Rate Limit** (advanced): Edit `finviz_stock_client.py`, change `rate_limit_seconds=2.0` to `1.5` (risk: IP ban)
+
+**Note:** Finviz fallback adds ~2 seconds per stock but significantly improves I component accuracy (35 → 60-100 points).
+
+### Issue 4: Finviz Web Scraping Failure
+
+**Symptoms:**
+```
+WARNING: Finviz request failed with status 403 for NVDA
+⚠️ Using Finviz institutional ownership data - FMP shares outstanding unavailable. Finviz fallback also unavailable. Score reduced by 50%.
+```
+
+**Causes:**
+- Finviz blocking scraping requests (User-Agent detection)
+- Rate limit exceeded (too many requests)
+- Network issues or Finviz downtime
+
+**Solutions:**
+1. **Wait and Retry**: Rate limit resets after a few minutes
+2. **Check Internet Connection**: Verify network access to finviz.com
+3. **Fallback Accepted**: Script continues with FMP holder count only (I score capped at 70/100)
+4. **Manual Verification**: Check Finviz website manually for blocked IP
+
+**Graceful Degradation:**
+- Script never fails due to Finviz issues
 - Falls back to FMP holder count only
-- I component score is capped at 70/100 with a 50% penalty
-- Wait a few minutes and retry, or verify your network access to finviz.com
+- User sees quality warning in report
 
-### All stocks scoring below 60
+### Issue 5: No Stocks Meet Minimum Thresholds
 
-This may indicate bear market conditions or a universe lacking growth stocks:
-- Check the M component -- if M = 0, follow bear market protocol (raise cash)
-- Try a different sector or expand the universe
-- In weak markets, scores in the 55-65 range may still be the relative best available
+**Symptoms:**
+```
+✓ Successfully analyzed 40 stocks
+Top 5 Stocks:
+  1. AAPL  -  58.3 (Average)
+  2. MSFT  -  55.1 (Average)
+  ...
+```
+
+**Causes:**
+- Bear market conditions (M component low)
+- Selected universe lacks growth stocks
+- Market rotation away from growth
+
+**Solutions:**
+1. **Check M Component**: If M=0 (bear market), raise cash per CANSLIM rules
+2. **Expand Universe**: Try different sectors or market cap ranges
+3. **Lower Expectations**: Average scores (55-65) may still be actionable in weak markets
+4. **Wait for Better Setup**: CANSLIM works best in bull markets
+
+### Issue 6: Data Quality Warnings
+
+**Symptoms:**
+```
+⚠️ Revenue declining despite EPS growth (possible buyback distortion)
+⚠️ Using Finviz institutional ownership data (68.3%) - FMP shares outstanding unavailable.
+```
+
+**Interpretation:**
+- These are **not errors** - they are quality flags from calculators
+- Revenue warning: EPS growth may be from share buybacks, not organic growth
+- Finviz warning: Data source switched from FMP to Finviz (still accurate)
+
+**Actions:**
+1. Review component details in full report
+2. Cross-check with fundamental analysis
+3. Adjust position sizing based on risk level
+4. Finviz data is reliable - no action needed for data source warnings
 
 ---
 
-## 10. Reference
+## Important Notes
 
-### CLI Arguments
+### Phase 3 Implementation Status
 
-| Argument | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `--api-key` | No | `$FMP_API_KEY` | FMP API key |
-| `--max-candidates` | No | `40` | Max stocks to analyze (use 35 for free tier) |
-| `--top` | No | `20` | Number of top results in the report |
-| `--output-dir` | No | `reports/` | Output directory for JSON and Markdown reports |
-| `--universe` | No | S&P 500 top 40 | Custom list of ticker symbols |
-| `--rs-benchmark` | No | `^GSPC` | Benchmark symbol for L-component RS (e.g. SPY, QQQ, IWM). M component still uses ^GSPC for EMA scale consistency. |
-| `--disable-rs` | No | `false` | Skip L component calculation. Saves the per-stock 365-day price fetch and the custom benchmark fetch (when applicable). L is fixed at neutral 50. |
+This is **Phase 3** implementing all 7 of 7 CANSLIM components:
+- ✅ **C** (Current Earnings) - Implemented
+- ✅ **A** (Annual Growth) - Implemented
+- ✅ **N** (Newness) - Implemented
+- ✅ **S** (Supply/Demand) - Implemented
+- ✅ **L** (Leadership/RS Rank) - Implemented
+- ✅ **I** (Institutional) - Implemented
+- ✅ **M** (Market Direction) - Implemented
 
-### Default Universe
+**Implications:**
+- Composite scores represent **100% of full CANSLIM methodology**
+- Uses original O'Neil component weights (C 15%, A 20%, N 15%, S 15%, L 20%, I 10%, M 5%)
+- L component (20% weight) is the largest individual factor alongside A, emphasizing relative strength leadership
+- M component uses real 50-day EMA from historical data (not fallback estimate)
 
-The default universe includes the top 40 S&P 500 stocks by market cap:
+### Finviz Integration Benefits
 
-```
-AAPL, MSFT, GOOGL, AMZN, NVDA, META, TSLA, BRK.B, UNH, JNJ,
-XOM, V, PG, JPM, MA, HD, CVX, MRK, ABBV, PEP, COST, AVGO, KO,
-ADBE, LLY, TMO, WMT, MCD, CSCO, ACN, ORCL, ABT, NKE, CRM, DHR,
-VZ, TXN, AMD, QCOM, INTC
-```
+**Automatic Fallback System:**
+- When FMP API doesn't provide `sharesOutstanding`, Finviz automatically activates
+- Scrapes institutional ownership % from Finviz.com (free, no API key)
+- Improves I component accuracy from 35/100 (partial) to 60-100/100 (full)
 
-### Scoring Formula
+**Data Source Priority:**
+1. **FMP API** (primary): Institutional holder count + shares outstanding calculation
+2. **Finviz** (fallback): Direct institutional ownership % from web page
+3. **Partial Data** (last resort): Holder count only, 50% penalty applied
 
-```
-Composite = C x 0.15 + A x 0.20 + N x 0.15 + S x 0.15 + L x 0.20 + I x 0.10 + M x 0.05
-```
+**Tested Reliability:**
+- 39/39 stocks successfully retrieved ownership % via Finviz (100% success rate)
+- Average execution time: 2.54 seconds per stock
+- No errors or IP blocks during testing
 
-### Weighted RS Calculation (Phase 3.1)
+### Future Enhancements
 
-The L component now uses a multi-period weighted relative strength against a configurable
-benchmark (default `^GSPC`):
+**Phase 4 (Planned):**
+- FINVIZ Elite integration for pre-screening
+- Execution time: 2 minutes → 10-15 seconds
+- FMP API usage reduction: 90%
+- Larger universe possible (100+ stocks)
 
-```
-Weighted RS = 0.40 × rel_3m + 0.30 × rel_6m + 0.30 × rel_12m
-```
+### Data Source Attribution
 
-- Periods: 3m = 63 trading bars, 6m = 126 bars, 12m = 252 bars.
-- When some periods are missing (insufficient history), the weights are re-normalized
-  over the available periods so they still sum to 1.0.
-- **Fallback hierarchy** when full multi-period data is not available:
-  1. **No benchmark** → score from the weighted absolute stock performance with a 20% penalty
-     (preserves the legacy fallback behavior).
-  2. **All multi-period windows missing but >=50 bars of price history available**
-     (e.g. fewer than 63 trading bars but a longer-than-50-bar series) → fall back to
-     the legacy 365-day full-window absolute return as the scoring input. The 20% penalty
-     still applies when no benchmark is present.
-  3. **<50 bars of price history** → score=0 with `error` set; no scoring is performed.
-- Pass `--rs-benchmark SPY` (or QQQ, IWM, etc.) to swap the benchmark. The M component
-  always uses `^GSPC` to keep its EMA calculation in scale.
+- **FMP API**: Income statements, quotes, historical prices, key metrics, institutional holders
+- **Finviz**: Institutional ownership % (fallback), market data
+- **Methodology**: William O'Neil's "How to Make Money in Stocks" (4th edition)
+- **Scoring System**: Adapted from IBD MarketSmith proprietary system
 
-### Output Schema (Phase 3.1)
+### Disclaimer
 
-The L-component sub-object adds the following fields. Existing fields are preserved for
-backward compatibility.
+**This screener is for educational and informational purposes only.**
+- Not investment advice
+- Past performance does not guarantee future results
+- CANSLIM methodology works best in bull markets (M component confirms)
+- Conduct your own research and consult a financial advisor before making investment decisions
+- O'Neil's historical winners include AAPL (2009: +1,200%), NFLX (2013: +800%), but many stocks fail to perform
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `rs_3m_return` / `rs_6m_return` / `rs_12m_return` | float \| null | Stock absolute return over 63 / 126 / 252 trading bars. |
-| `benchmark_3m_return` / `benchmark_6m_return` / `benchmark_12m_return` | float \| null | Benchmark absolute return over the same windows. |
-| `rel_3m` / `rel_6m` / `rel_12m` | float \| null | Stock minus benchmark (per period). Null when no benchmark. |
-| `weighted_stock_performance` | float \| null | Weighted absolute return (used as scoring input when no benchmark). |
-| `weighted_relative_performance` | float \| null | Weighted relative return (scoring input when benchmark available). |
-| `benchmark_52w_performance` | float \| null | Symbol-neutral successor to `sp500_52w_performance`. |
-| `rs_benchmark` | string | Benchmark symbol used (e.g. `^GSPC`, `SPY`). |
-| `rs_benchmark_relative_return` | float \| null | Equal to `rel_12m` (252-bar relative). Note: this is **not** the same as legacy `relative_performance`, which uses the full 365-day window. |
-| `rs_rating` | string | Short label derived from `rs_rank_percentile`: `Market Leader` / `Strong` / `Above Average` / `Average` / `Laggard` / `Weak`. |
-| `rs_component_score` | int | Alias of `score` (0–100). |
-| `rs_rank_percentile` | int \| null | **Estimated** percentile derived from relative-performance thresholds. **Not** a cross-sectional percentile within the screened universe. |
+---
 
-Deprecation notes:
-
-- `sp500_52w_performance` is retained for backward compatibility. When `--rs-benchmark`
-  is set to a non-`^GSPC` symbol, this field contains that benchmark's return (the field
-  name lies). Prefer `benchmark_52w_performance`.
-- `relative_performance` continues to mean the 365-day full-window stock − benchmark
-  return. It differs from `rs_benchmark_relative_return` (252-bar) and from
-  `weighted_relative_performance` (multi-period weighted).
-
-### Rating Bands
-
-| Band | Score | Interpretation |
-|------|-------|---------------|
-| Exceptional+ | 90-100 | All components near-perfect |
-| Exceptional | 80-89 | Outstanding fundamentals + momentum |
-| Strong | 70-79 | Solid across components |
-| Above Average | 60-69 | Meets thresholds with minor weaknesses |
-| Average | 50-59 | Mixed signals |
-| Below Average | < 50 | Does not meet CANSLIM criteria |
+**Version:** Phase 3.1 (multi-period RS)
+**Last Updated:** 2026-05-03
+**API Requirements:** FMP API (free tier: up to 35 stocks; Starter tier recommended for 40 stocks) + BeautifulSoup/requests/lxml for Finviz
+**Execution Time:** ~2 minutes for 40 stocks
+**Output Formats:** JSON + Markdown (now includes Summary Table and `schema_version: "3.1"`)
+**Components Implemented:** C, A, N, S, L, I, M (7 of 7, 100% coverage)
+**Phase 3.1 additions:** multi-period RS (3m/6m/12m), `--rs-benchmark`, `--disable-rs`,
+new RS fields (`rs_rating`, `rs_rank_percentile`, `rs_3m_return`, `rs_6m_return`,
+`rs_12m_return`, `rs_benchmark`, `rs_benchmark_relative_return`, `rs_component_score`,
+`benchmark_52w_performance`).

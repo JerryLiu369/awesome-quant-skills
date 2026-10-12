@@ -16,7 +16,7 @@
       "category": "alpha-factors",
       "path": "skills/alpha-factors/breadth-chart-analyst/SKILL.md",
       "upstream": "tradermonty/claude-trading-skills",
-      "size_bytes": 8971,
+      "size_bytes": 33312,
       "upstream_url": "https://github.com/tradermonty/claude-trading-skills",
       "license": "UPSTREAM"
     },
@@ -25,7 +25,7 @@
       "category": "alpha-factors",
       "path": "skills/alpha-factors/canslim-screener/SKILL.md",
       "upstream": "tradermonty/claude-trading-skills",
-      "size_bytes": 17153,
+      "size_bytes": 26446,
       "upstream_url": "https://github.com/tradermonty/claude-trading-skills",
       "license": "UPSTREAM"
     },
