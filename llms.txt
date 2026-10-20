@@ -21,7 +21,8 @@
   Global Equities), Universal Quant Pipeline (Data Ingestion, Alpha
   Generation, Portfolio & Risk, Backtesting & Safety, Execution & Routing),
   Quant MCP Servers (Market Feeds, Broker Gateways), Skill-Native Frameworks,
-  Miscellaneous. Entries without a `mirrored at` note are link-only.
+  Agent Evaluation & Benchmarks, Miscellaneous. Entries without a `mirrored at`
+  note are link-only.
 - `NOTICE.md` — the mirror-to-upstream index table (local path, upstream,
   license status). `SECURITY.md` — safe defaults for money-moving tools.
 
