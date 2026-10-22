@@ -304,6 +304,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 *A staging ground for emerging, experimental, or cross-cutting skills that do not fit neatly into the categories above. When 3+ related skills accumulate here, they will graduate into their own dedicated category.*
 
 - [BoyceFong/quant-skill-build](https://github.com/BoyceFong/quant-skill-build) - Skill authoring and scaffolding builder optimized for Codex and quantitative prompt authoring.
+- [OpenJobs](https://openjobs.thecompound.tech) - OpenJobs keeps your roles, projects, achievements, stories and skills in one experience bank; it tailors each resume and each application answer from that bank for the job.
 
 ---
 
