@@ -123,6 +123,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [rollysys/use_cninfo](https://github.com/rollysys/use_cninfo) - 查询巨潮资讯 A 股法定披露的专用 CLI + Claude Code `SKILL.md` skill，经 PyMuPDF 提取全文 Markdown（镜像于 `skills/china-markets/cninfo-disclosure/SKILL.md`）。
 - [sencloud/futures_mcp](https://github.com/sencloud/futures_mcp) - 境内商品与金融期货 MCP 服务，整合 AKShare 行情、多指标技术分析与 DeepSeek 解析。
 - [shinnytech/tqsdk-python](https://github.com/shinnytech/tqsdk-python) - 天勤官方 SDK，内嵌 agent skill（`skills/china-markets/tqsdk-trading/SKILL.md`），支持 CTP 期货/期权事件循环与保证金交易。
+- [shouldnotappearcalm/a-share-skill](https://github.com/shouldnotappearcalm/a-share-skill) - 面向 Claude Code 等 Agent 运行时的 A 股量化选股与模拟交易 Skill 集合，覆盖实时行情、K 线技术指标、多周期均线回踩策略与模拟账户撮合交易。
 - [Wangshengyang2004/myquant-mcp](https://github.com/Wangshengyang2004/myquant-mcp) - 基于掘金量化 GM API 的 MCP 服务与配套 `SKILL.md`，覆盖 A 股行情、基本面、持仓、T+0 日内交易与仿真/实盘委托。
 - [xxbbzy/ptrade-agent-skills](https://github.com/xxbbzy/ptrade-agent-skills) - 面向 Claude Code 与 Codex 的专用 `SKILL.md` 套件（`skills/china-markets/ptrade-strategy-writing`），带静态 AST 检查，用于编写与审查 PTrade 机构交易算法。
 - [yywx55/qmt-trade-mcp](https://github.com/yywx55/qmt-trade-mcp) - QMT/xtquant MCP 服务，工具分为行情组（快照、除权因子、交易日历）与交易组（委托、撤单、持仓），通过 SSE 暴露。
@@ -145,6 +146,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [kukapay/crypto-liquidations-mcp](https://github.com/kukapay/crypto-liquidations-mcp) - 推送 Binance 合约爆仓 cascade 与委托规模分布的 FastMCP 流服务，用于市场压力检测。
 - [kukapay/jupiter-mcp](https://github.com/kukapay/jupiter-mcp) - 经 Jupiter Ultra API 执行 Solana DEX 兑换的专用 MCP 服务，支持报价生成、滑点容忍与优先费控制。
 - [mirror29/openfinclaw-cli](https://github.com/mirror29/openfinclaw-cli) - 面向多 agent 环境的即插即用加密研究、回测、模拟交易 skill 集成。
+- [moss-site/moss-trade-bot-skills](https://github.com/moss-site/moss-trade-bot-skills) - 自我进化的加密交易 Agent Skill 套件，将自然语言转化为涵盖趋势、均值回归、动量、成交量与风控的五维策略，适配 Hyperliquid 永续合约模拟与实盘。
 - [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) - 连接 AI agent 与 Solana 协议的基础开源工具包，60+ action（Jupiter、Raydium、Orca、Meteora、Drift）。
 - [Senpi-ai/senpi-skills](https://github.com/Senpi-ai/senpi-skills) - 面向 Hyperliquid 永续的开源技能库，15 个 `SKILL.md`，覆盖市场脉搏、聪明钱流向、资金费率、仓位管理与风控护栏。
 - [SpartanLabsXyz/simmer-sdk](https://github.com/SpartanLabsXyz/simmer-sdk) - 面向 Agent 的预测市场套件：37 个 `SKILL.md`、内置 `simmer-mcp` 服务与 Python SDK，可在 Polymarket、Kalshi 与 Hyperliquid 上做模拟交易。
@@ -164,7 +166,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 ---
 
-## ⚙️ 通用量化流水线
+## ⚙ 通用量化流水线
 
 *按量化投资全生命周期的时间顺序排列的模块化 skill。*
 
@@ -174,11 +176,13 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [btopn/OpenInsider-MCP](https://github.com/btopn/OpenInsider-MCP) - MCP 服务，聚合 OpenInsider 的 Form 4 内部人交易、SEC EDGAR 8-K/13D 申报与 FINRA 卖空量和交割失败数据。
 - [c-cf/imf-data-mcp](https://github.com/c-cf/imf-data-mcp) - 基于新版 SDMX API 的 IMF 宏观 MCP 服务，可查询 IFS、世界经济展望与国际收支数据集。
 - [CNQQC/xueqiu-mcp](https://github.com/CNQQC/xueqiu-mcp) - 29 个工具的雪球 MCP 服务，输出结构化行情、资金流与社区情绪（Markdown 表格）（非官方；随时可能失效）。
+- [coingecko/skills](https://github.com/coingecko/skills) - CoinGecko 官方 Agent Skill，动态读取实时 API 文档与接口规范，为 Agent 提供多链现货价格、市值排名、代币元数据及 1,000+ DEX 流动性数据。
 - [dgunning/edgartools](https://github.com/dgunning/edgartools) - SEC EDGAR 工具包，自带 MCP 服务（`edgartools-mcp`）与 Claude Code skill，把 10-K、10-Q、8-K、Form 4 内幕交易提取为类型化数据（镜像于 `skills/global-equities/edgar-financials/SKILL.md`）。
 - [elsejj/mcp-cn-a-stock](https://github.com/elsejj/mcp-cn-a-stock) - 专用 A 股 MCP 服务，基于 `msd` 数据库，分层提供报价、财务基本面与技术指标。
 - [erwanjun/tushare-mcp-server](https://github.com/erwanjun/tushare-mcp-server) - 生产级 MCP 服务，封装 173 个 Tushare Pro 接口，覆盖 A 股、期货、期权、指数与宏观（需 Tushare Pro token；免费版可用）。
 - [guangxiangdebizi/FinanceMCP](https://github.com/guangxiangdebizi/FinanceMCP) - 多市场金融 MCP 服务，19 个工具，集成 Tushare Pro 查报价、财报与宏观指标（需 Tushare Pro token；免费版可用）。
 - [hypier/tradingview-quantitative-skills](https://github.com/hypier/tradingview-quantitative-skills) - 技术形态识别、市场扫描与 TradingView 行情集成 skill。
+- [komako-workshop/digital-oracle](https://github.com/komako-workshop/digital-oracle) - 宏观趋势挖掘 Agent Skill，聚合 Polymarket、Kalshi、CFTC 机构持仓、SEC 内部人交易、美债收益率曲线与央行基准利率等 13 个金融数据源进行多维概率推断。
 - [kylefu8/tradingview-akshare-mcp](https://github.com/kylefu8/tradingview-akshare-mcp) - 基于 AKShare 与 TradingView 指标的技术分析 MCP 服务，多源兜底。
 - [lefterisloukas/edgar-crawler](https://github.com/lefterisloukas/edgar-crawler) - 学术级 SEC EDGAR 抽取引擎（WWW 2025），把 10-K、10-Q、8-K 转为干净的分 item JSON。
 - [quantskills/quantskills](https://github.com/quantskills/quantskills) - 金融 agent 的全景生态导航与标准取数工作流。
@@ -242,6 +246,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 ### 5. 执行与订单路由
 *订单执行算法（TWAP/VWAP）、滑点管理与券商对接。*
 - [anbotolabs/anboto-agent-kit](https://github.com/anbotolabs/anboto-agent-kit) - 机构执行桌套件与 MCP（`@anboto/mcp`），原生 Claude Skill（`anboto-trading`），在 14 个场所部署 TWAP、VWAP、POV、冰山算法。
+- [elliottech/lighter-agent-kit](https://github.com/elliottech/lighter-agent-kit) - 面向 Lighter 链上订单簿 DEX 的 Agent Skill，支持 Agent 查询深度盘口、资金费率与 K 线，并自主执行限价/市价委托、杠杆保证金调整及现货/永续转账。
+- [infinitefield/hypersdk](https://github.com/infinitefield/hypersdk) - 高性能 Hyperliquid Rust SDK 与 CLI（`hypecli`），附带原生 Agent Skill（`skills/hyperliquid-trading`），向 AI 暴露下单、撤单、杠杆设置与仓位状态同步能力。
 - [SMU-Rainflow/ctp-mcp](https://github.com/SMU-Rainflow/ctp-mcp) - 基于 `vnpy_ctp` 的 MCP 服务，向 coding agent 暴露 CTP tick 流、限价/市价下单与撤单。
 - [Synpath-ai/synpath](https://github.com/Synpath-ai/synpath) - Python/Rust 智能订单路由（SOR）与高级执行算法（TWAP、冰山、pegged），面向预测与金融场所。
 - [TradeRouter/trade-router-mcp](https://github.com/TradeRouter/trade-router-mcp) - 算法执行 MCP 服务，暴露 TWAP 切片、DCA 与多 DEX 路由，带 MEV 保护。
@@ -253,8 +259,10 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 *为量化 agent 提供 raw 计算与数据 API 的标准 MCP 服务。*
 
 ### 行情与基本面
+- [akfamily/aktools](https://github.com/akfamily/aktools) - AKShare 官方 HTTP API 与 MCP 服务，向 Claude、Cursor 等 AI 助手完整开放 A 股、国内期货、债券、指数与宏观经济数据的结构化工具接口。
 - [Alex2Yang97/yahoo-finance-mcp](https://github.com/Alex2Yang97/yahoo-finance-mcp) - 生产级 Yahoo Finance MCP 服务，暴露历史 OHLCV、期权链、基本面比率与公司行动。
 - [alphavantage/alpha_vantage_mcp](https://github.com/alphavantage/alpha_vantage_mcp) - Alpha Vantage 官方 MCP，提供行情、60+ 技术指标、基本面、外汇与加密数据，并附 `global-stock-analysis` 技能。
+- [atilaahmettaner/tradingview-mcp](https://github.com/atilaahmettaner/tradingview-mcp) - 涵盖 39 个工具的 TradingView MCP 服务，支持股票、加密、外汇与期货的多周期技术指标计算、市场选股筛选器、回测及情绪分析。
 - [bidouilles/mcp-tradingview-server](https://github.com/bidouilles/mcp-tradingview-server) - FastMCP 服务，直调 TradingView 技术指标（RSI、MACD、EMA）与 OHLCV 蜡烛流。
 - [cfdude/mcp-finnhub](https://github.com/cfdude/mcp-finnhub) - 基于 Finnhub API 的 FastMCP 服务，覆盖实时行情、含形态识别的技术分析、基本面、目标价、内部人交易与市场情绪。
 - [doggybee/mcp-server-ccxt](https://github.com/doggybee/mcp-server-ccxt) - 统一 CCXT 交易与行情的 MCP 服务，覆盖 20+ 加密交易所。
@@ -271,21 +279,33 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 ### 券商与交易所网关
 - [alpacahq/alpaca-mcp-server](https://github.com/alpacahq/alpaca-mcp-server) - 官方 Alpaca MCP 服务，行情 + 实盘/模拟交易，覆盖股票、ETF、加密与期权。
 - [AnalyticAce/binance-mcp-server](https://github.com/AnalyticAce/binance-mcp-server) - 生产级 Binance 现货与合约 MCP 服务，带盘口分析与持仓跟踪。
+- [ariadng/metatrader-mcp-server](https://github.com/ariadng/metatrader-mcp-server) - 连接 MetaTrader（MT4/MT5）平台的 MCP 服务，支持 AI 助手基于自然语言执行外汇/差价合约交易、查询持仓与账户风险指标。
+- [code-rabi/interactive-brokers-mcp](https://github.com/code-rabi/interactive-brokers-mcp) - 基于盈透证券 Client Portal Web API 的 FastMCP 服务，提供合约检索、实时行情、订单路由、持仓查询与成交确认。
+- [hypurrquant/perp-cli](https://github.com/hypurrquant/perp-cli) - 多 DEX 永续合约 CLI 与 MCP 服务，提供 31 个工具覆盖 Hyperliquid、Pacifica、Lighter 等交易所的交易下单、跨所资金费率套利与跨链桥路由。
+- [krakenfx/kraken-cli](https://github.com/krakenfx/kraken-cli) - Kraken 官方 CLI 及其内置 MCP 服务，支持 AI Agent 执行现货、代币化美股、外汇与期货交易，并支持基于真实盘口的模拟交易。
+- [QuantConnect/mcp-server](https://github.com/QuantConnect/mcp-server) - QuantConnect 官方远程托管 MCP 服务，支持 Claude 等助手直接在云端创建项目、编译代码、启动全量回测与部署实盘算法。
 - [rcontesti/IB_MCP](https://github.com/rcontesti/IB_MCP) - 对接 Interactive Brokers 官方 Web API 的 MCP 服务，监控流动性、下机构级订单。
+- [ryanfrigo/kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot) - 面向 Kalshi 预测市场的 Agent 工具箱（含 CLI、MCP 与 Claude Skill），具备交易前真实胜率测算、凯利公式仓位管理与严谨实盘执行日志。
 - [shuizhengqi1/futu-stock-mcp-server](https://github.com/shuizhengqi1/futu-stock-mcp-server) - 富途 OpenAPI 的 MCP 服务，提供港/美/A 股 Level-2 行情、K 线、持仓与下单，并自带 `SKILL.md`。
 - [visusnet/coinbase-mcp-server](https://github.com/visusnet/coinbase-mcp-server) - 集成 Coinbase Advanced Trading API 的 MCP 服务与原生 Claude Skill（`coinbase-trading`），支持自主交易执行。
 
 ---
 
-## 🏗️ Skill 原生量化框架
+## 🏗 Skill 原生量化框架
 
 *围绕可组合 skill 设计的自主多 agent 量化平台。*
 - [AI4Finance-Foundation/FinRobot](https://github.com/AI4Finance-Foundation/FinRobot) - 开源多 agent 平台，编排专业角色（市场分析师、10-K 财务分析师、量化交易员、风控经理）做股票研究。
 - [jesson-hh/financial-analyst](https://github.com/jesson-hh/financial-analyst) - A 股「研究→交易」投研工作台，16+ 子 Agent 协作、各角色由 28 个 `SKILL.md` 定义，覆盖研报解析、因子筛选与多空风控辩论。
 - [microsoft/RD-Agent](https://github.com/microsoft/RD-Agent) - 微软研究院的自主研发多 agent 框架，对 Microsoft Qlib 自动做假设生成、因子实现与回测。
 - [Open-Finance-Lab/AgenticTrading](https://github.com/Open-Finance-Lab/AgenticTrading) - 面向 LLM 交易 Agent 的开源实验平台与模拟交易沙箱，含多模型编排、模拟撮合与可追溯决策日志。
+- [OpenByteInc/QuantDinger](https://github.com/OpenByteInc/QuantDinger) - 开源 AI 交易操作系统与多 Agent 投研平台，整合 Python 策略生成、事件驱动回测及股票/加密/外汇实盘，支持多租户 SaaS 与用户结算。
+- [Polymarket/agents](https://github.com/Polymarket/agents) - Polymarket 官方自主交易 Agent 框架，内置基于 LLM 的概率推理决策、做市商流动性管理与跟随交易策略。
+- [simonlin1212/TradingAgents-astock](https://github.com/simonlin1212/TradingAgents-astock) - TradingAgents 针对中国 A 股深度特化的多 Agent 投研框架，基于 LangGraph 构建 7 位分析师的多空辩论决策机制，深度适配龙虎榜、游资动向与解禁数据。
 - [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) - 基于 LangGraph 的机构交易桌多 agent 框架，专业 LLM 角色按结构化辩论与风控循环协作。
+- [The-Swarm-Corporation/AutoHedge](https://github.com/The-Swarm-Corporation/AutoHedge) - 基于群体智能（Swarm Intelligence）的企业级自主对冲基金架构，调度专用 LLM Agent 协同完成全市场分析、风险预算与自动化交易执行。
 - [tohnee/investagent](https://github.com/tohnee/investagent) - 多 agent 投研框架，结合产业链分析、巴菲特估值过滤与 QuantDinger 回测。
+- [TraderAlice/OpenAlice](https://github.com/TraderAlice/OpenAlice) - 个人专属全资产 AI 交易编排系统，覆盖美股、加密、大宗商品、外汇与宏观，管控从投研分析、开仓建仓到持续盯盘与平仓退出的全生命周期。
+- [ValueCell-ai/valuecell](https://github.com/ValueCell-ai/valuecell) - 社区驱动的多 Agent 金融投研平台，结合模块化 MCP 工具集与多智能体协作工作流，提供股票与加密资产的交互式深度投研。
 - [virattt/ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) - 多智能体对冲基金框架，由投资大师人格、基本面、技术面、情绪、风控与组合经理 Agent 依次决策，并自带回测器。
 - [yiyan-yixing/quant-trading-skills](https://github.com/yiyan-yixing/quant-trading-skills) - 11 角色协作量化 agent 框架，20 个核心 skill、3 层记忆、对抗挑战协议。
 
@@ -295,8 +315,13 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 *用可执行任务给量化 Agent 打分的基准与前向测试环境，而不是评作文。*
 
-- [QF-Bench/QuantitativeFinance-Bench](https://github.com/QF-Bench/QuantitativeFinance-Bench) - 状态感知的交互式基准，在隔离 Docker 沙箱内给 Agent 的脏数据清洗、运行时报错调试、因子工程与组合优化打分。
+- [DidierRLopes/openbb-workspace-bench](https://github.com/DidierRLopes/openbb-workspace-bench) - 仿 Terminal-Bench 风格的评测基准，用于评测 AI Agent 通过 MCP 工具在 OpenBB Workspace 可组合金融投研环境中的多轮交互与任务执行能力。
+- [general-liquidity/sharpebench](https://github.com/general-liquidity/sharpebench) - 具备抗偶发性（Luck-robust）的交易 Agent 评测基准，通过确定性 Rust 内核执行多次重复回放、通胀修正与统计显著性检验，剥离随机运气衡量真实交易能力。
+- [HephaestLab/TraderHarness](https://github.com/HephaestLab/TraderHarness) - 面向 LLM 交易 Agent 的抗未来信息污染回测环境与确定性回放引擎，支持中国 A 股高频/日频数据并可合成对齐训练轨迹。
 - [LimexAILab/QuantCode-Bench](https://github.com/LimexAILab/QuantCode-Bench) - 评测模型能否把自然语言策略想法转成可执行 Backtrader 代码，按编译、回测执行与语义对齐三个阶段打分。
+- [microsoft/FinanceBenchmark](https://github.com/microsoft/FinanceBenchmark) - 微软发布的金融 Agent 评测基准，在接入互联网与 ERP/Finance MCP 真实数据源下，评估智能体在财务合规调研、业绩分析与商业简报生成三大任务上的表现。
+- [QF-Bench/QuantitativeFinance-Bench](https://github.com/QF-Bench/QuantitativeFinance-Bench) - 状态感知的交互式基准，在隔离 Docker 沙箱内给 Agent 的脏数据清洗、运行时报错调试、因子工程与组合优化打分。
+- [The-FinAI/Agent_Market_Arena](https://github.com/The-FinAI/Agent_Market_Arena) - 实时跨市场交易 Agent 竞技场评测基准（arXiv:2510.11695），让不同大模型智能体在多资产实时竞争市场环境下同台竞技对决。
 - [ulab-uiuc/live-trade-bench](https://github.com/ulab-uiuc/live-trade-bench) - 面向 LLM 交易 Agent 的前向测试环境，直接在股票与预测市场实时数据流上评估，结构上杜绝未来信息泄漏。
 
 ## 🧪 其他 Skill
@@ -319,7 +344,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 ---
 
-## ⚠️ 免责声明
+## ⚠ 免责声明
 
 本项目仅供研究与学习，不构成任何投资建议、买卖要约或招揽。
 

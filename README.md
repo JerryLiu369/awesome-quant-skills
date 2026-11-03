@@ -123,6 +123,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [rollysys/use_cninfo](https://github.com/rollysys/use_cninfo) - Specialized CLI and Claude Code `SKILL.md` skill querying official A-share statutory disclosures on CnInfo and extracting full-text Markdown via PyMuPDF (mirrored at `skills/china-markets/cninfo-disclosure/SKILL.md`).
 - [sencloud/futures_mcp](https://github.com/sencloud/futures_mcp) - Domestic commodity and financial futures MCP server combining AKShare market data feeds, multi-indicator technical analysis, and DeepSeek analytical integration.
 - [shinnytech/tqsdk-python](https://github.com/shinnytech/tqsdk-python) - Official Tianqin Quant SDK featuring an embedded agent skill (`skills/china-markets/tqsdk-trading/SKILL.md`) for CTP futures/options event loops and margin execution.
+- [shouldnotappearcalm/a-share-skill](https://github.com/shouldnotappearcalm/a-share-skill) - A-share quant trading and paper-trading skill suite for Claude Code and agent harnesses, providing real-time quotes, technical indicators, trend-pullback strategies, and simulated execution accounts.
 - [Wangshengyang2004/myquant-mcp](https://github.com/Wangshengyang2004/myquant-mcp) - MCP server and companion `SKILL.md` on the MyQuant GM API, covering A-share quotes, fundamentals, positions, T+0 intraday trading and paper or live orders.
 - [xxbbzy/ptrade-agent-skills](https://github.com/xxbbzy/ptrade-agent-skills) - Dedicated `SKILL.md` skill suite (`skills/china-markets/ptrade-strategy-writing`) for Claude Code and Codex with static AST checkers to write and inspect PTrade institutional trading algorithms.
 - [yywx55/qmt-trade-mcp](https://github.com/yywx55/qmt-trade-mcp) - QMT/xtquant MCP server whose tools split into a market-data group (snapshots, adjustment factors, trading calendar) and an execution group (orders, cancellations, positions), served over SSE.
@@ -145,6 +146,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [kukapay/crypto-liquidations-mcp](https://github.com/kukapay/crypto-liquidations-mcp) - FastMCP streaming server streaming Binance Futures liquidation cascades and order size distributions for market stress detection.
 - [kukapay/jupiter-mcp](https://github.com/kukapay/jupiter-mcp) - Dedicated MCP server executing Solana DEX token swaps via Jupiter Ultra API with quote generation, slippage tolerance, and priority fee controls.
 - [mirror29/openfinclaw-cli](https://github.com/mirror29/openfinclaw-cli) - Plug-and-play crypto research, backtest, and paper-trade skill integrations for multi-agent environments.
+- [moss-site/moss-trade-bot-skills](https://github.com/moss-site/moss-trade-bot-skills) - Self-evolving crypto trading agent skills translating natural language into 5-pillar strategies (Trend, Mean-Reversion, Momentum, Volume, Risk) with 30+ tunable parameters on Hyperliquid perpetuals.
 - [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) - Foundational open-source toolkit connecting AI agents to Solana protocols with 60+ actions (Jupiter, Raydium, Orca, Meteora, Drift).
 - [Senpi-ai/senpi-skills](https://github.com/Senpi-ai/senpi-skills) - Hyperliquid perpetuals skill library with 15 `SKILL.md` files covering market pulse, smart-money flow, funding rates, position sizing and risk guardrails.
 - [SpartanLabsXyz/simmer-sdk](https://github.com/SpartanLabsXyz/simmer-sdk) - Prediction-market harness for agents: 37 `SKILL.md` files, a bundled `simmer-mcp` server and a Python SDK for paper-trading Polymarket, Kalshi and Hyperliquid.
@@ -164,7 +166,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 ---
 
-## ⚙️ Universal Quant Pipeline
+## ⚙ Universal Quant Pipeline
 
 *Modular skills aligned with each chronological stage of the quantitative investment lifecycle.*
 
@@ -174,11 +176,13 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [btopn/OpenInsider-MCP](https://github.com/btopn/OpenInsider-MCP) - MCP server aggregating OpenInsider Form 4 insider trades, SEC EDGAR 8-K and 13D filings plus FINRA short-volume and failure-to-deliver data for forensic tracking.
 - [c-cf/imf-data-mcp](https://github.com/c-cf/imf-data-mcp) - IMF macroeconomic MCP server built on the modern SDMX API, querying IFS, World Economic Outlook and Balance of Payments datasets.
 - [CNQQC/xueqiu-mcp](https://github.com/CNQQC/xueqiu-mcp) - MCP server with 29 tools providing structured Xueqiu market data, capital flows, and community sentiment formatted as clean Markdown tables (unofficial; can break without notice).
+- [coingecko/skills](https://github.com/coingecko/skills) - Official CoinGecko agent skill dynamically querying live API documentation and endpoints for cryptocurrency spot prices, market caps, token metadata, and DeFi protocol metrics across 1,000+ DEXes.
 - [dgunning/edgartools](https://github.com/dgunning/edgartools) - SEC EDGAR toolkit providing a native MCP server (`edgartools-mcp`) and Claude Code skills for extracting 10-K, 10-Q, 8-K, and Form 4 insider filings into typed data (mirrored at `skills/global-equities/edgar-financials/SKILL.md`).
 - [elsejj/mcp-cn-a-stock](https://github.com/elsejj/mcp-cn-a-stock) - Dedicated A-share MCP server providing tiered endpoints for quotes, financial fundamentals, and technical indicators backed by the `msd` database.
 - [erwanjun/tushare-mcp-server](https://github.com/erwanjun/tushare-mcp-server) - Production MCP server wrapping 173 Tushare Pro endpoints across A-shares, futures, options, indices, and macro metrics (needs a Tushare Pro token; freemium).
 - [guangxiangdebizi/FinanceMCP](https://github.com/guangxiangdebizi/FinanceMCP) - Multi-market financial MCP server providing 19 tools integrating Tushare Pro for quotes, financial statements, and macro indicators (needs a Tushare Pro token; freemium).
 - [hypier/tradingview-quantitative-skills](https://github.com/hypier/tradingview-quantitative-skills) - Technical pattern recognition, market scanning, and TradingView feed integration skills.
+- [komako-workshop/digital-oracle](https://github.com/komako-workshop/digital-oracle) - Macro intelligence skill synthesizing probability estimates from 13 financial data sources (Polymarket, Kalshi, CFTC commitments, SEC insider filings, Treasury curves, central bank rates) for AI agents.
 - [kylefu8/tradingview-akshare-mcp](https://github.com/kylefu8/tradingview-akshare-mcp) - Technical analysis MCP server built on AKShare and TradingView indicators with multi-source fallback.
 - [lefterisloukas/edgar-crawler](https://github.com/lefterisloukas/edgar-crawler) - Academic SEC EDGAR extraction engine (WWW 2025) converting 10-K, 10-Q, and 8-K reports into clean, item-segmented JSON structures.
 - [quantskills/quantskills](https://github.com/quantskills/quantskills) - Panoramic ecosystem navigation and standard data retrieval workflows for financial agents.
@@ -242,6 +246,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 ### 5. Execution & Order Routing
 *Order execution algorithms (TWAP/VWAP), slippage management, and broker integration.*
 - [anbotolabs/anboto-agent-kit](https://github.com/anbotolabs/anboto-agent-kit) - Institutional execution desk toolkit and MCP (`@anboto/mcp`) with native Claude Skill (`anboto-trading`) deploying TWAP, VWAP, POV, and Iceberg algorithms across 14 venues.
+- [elliottech/lighter-agent-kit](https://github.com/elliottech/lighter-agent-kit) - Agent skill enabling AI traders to query order books, funding rates, and candlesticks, and execute limit/market orders, margin adjustments, and transfers on the Lighter DEX.
+- [infinitefield/hypersdk](https://github.com/infinitefield/hypersdk) - High-performance Rust SDK and CLI (`hypecli`) for Hyperliquid, shipping native agent skills (`skills/hyperliquid-trading`) for order placement, cancelation, leverage control, and position state synchronization.
 - [SMU-Rainflow/ctp-mcp](https://github.com/SMU-Rainflow/ctp-mcp) - MCP server built on `vnpy_ctp` exposing CTP tick streaming, limit/market order placement, and cancellation to coding agents.
 - [Synpath-ai/synpath](https://github.com/Synpath-ai/synpath) - Python/Rust smart order routing (SOR) and advanced execution algorithms (TWAP, iceberg, pegged orders) for prediction and financial venues.
 - [TradeRouter/trade-router-mcp](https://github.com/TradeRouter/trade-router-mcp) - Algorithmic execution MCP server exposing TWAP slicing, DCA, and multi-DEX routing with MEV protection.
@@ -253,8 +259,10 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 *Standardized Model Context Protocol servers providing raw computational and data APIs to quant agents.*
 
 ### Market Feeds & Fundamentals
+- [akfamily/aktools](https://github.com/akfamily/aktools) - Official HTTP API and MCP server for AKShare, exposing comprehensive Chinese equity, futures, bond, index, and macro data to AI coding assistants and agents.
 - [Alex2Yang97/yahoo-finance-mcp](https://github.com/Alex2Yang97/yahoo-finance-mcp) - Production-ready Yahoo Finance MCP server exposing historical OHLCV candles, option chains, fundamental ratios, and corporate actions.
 - [alphavantage/alpha_vantage_mcp](https://github.com/alphavantage/alpha_vantage_mcp) - Official Alpha Vantage MCP server exposing quotes, 60+ technical indicators, fundamentals, FX and crypto, shipped with a `global-stock-analysis` skill.
+- [atilaahmettaner/tradingview-mcp](https://github.com/atilaahmettaner/tradingview-mcp) - Comprehensive TradingView MCP server providing 39 tools for multi-timeframe technical indicators, market screeners, backtests, and sentiment analysis across equities, crypto, forex, and futures.
 - [bidouilles/mcp-tradingview-server](https://github.com/bidouilles/mcp-tradingview-server) - FastMCP server providing direct tool access to TradingView technical indicators (RSI, MACD, EMAs) and OHLCV candlestick feeds.
 - [cfdude/mcp-finnhub](https://github.com/cfdude/mcp-finnhub) - FastMCP server over the Finnhub API covering real-time quotes, technical analysis with pattern recognition, fundamentals, price targets, insider transactions and sentiment.
 - [doggybee/mcp-server-ccxt](https://github.com/doggybee/mcp-server-ccxt) - Model Context Protocol server exposing unified CCXT trading and market data tools across 20+ cryptocurrency exchanges.
@@ -271,21 +279,33 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 ### Broker & Exchange Gateways
 - [alpacahq/alpaca-mcp-server](https://github.com/alpacahq/alpaca-mcp-server) - Official Alpaca MCP server exposing market data and live/paper trading tools for equities, ETFs, crypto, and options.
 - [AnalyticAce/binance-mcp-server](https://github.com/AnalyticAce/binance-mcp-server) - Production MCP server exposing Binance spot and futures APIs with order book analysis and position tracking.
+- [ariadng/metatrader-mcp-server](https://github.com/ariadng/metatrader-mcp-server) - Model Context Protocol server connecting AI assistants to MetaTrader (MT4/MT5) terminals for natural-language order execution, open position tracking, and real-time account risk telemetry.
+- [code-rabi/interactive-brokers-mcp](https://github.com/code-rabi/interactive-brokers-mcp) - FastMCP server interfacing with the Interactive Brokers Client Portal Web API for contract search, market quotes, order routing, portfolio balances, and execution confirmation.
+- [hypurrquant/perp-cli](https://github.com/hypurrquant/perp-cli) - Unified perpetual futures CLI and MCP server exposing 31 tools for cross-DEX trading (Hyperliquid, Pacifica, Lighter, Aster, Arcus), funding-rate arbitrage, and collateral bridge routing.
+- [krakenfx/kraken-cli](https://github.com/krakenfx/kraken-cli) - Official Kraken CLI with embedded MCP server for AI agents, enabling spot, tokenized stock, forex, and futures execution with built-in paper trading against live order books.
+- [QuantConnect/mcp-server](https://github.com/QuantConnect/mcp-server) - Official remote MCP server connecting AI assistants directly to the QuantConnect cloud platform for project generation, cloud compilation, backtesting, and paper/live trading deployment.
 - [rcontesti/IB_MCP](https://github.com/rcontesti/IB_MCP) - Model Context Protocol server interfacing with Interactive Brokers' official Web API to monitor liquidity and submit institutional-grade orders.
+- [ryanfrigo/kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot) - Prediction-market edge harness for Kalshi offering CLI, MCP server, and Claude skill integrations with pre-trade edge verification, Kelly bet sizing, and execution logging.
 - [shuizhengqi1/futu-stock-mcp-server](https://github.com/shuizhengqi1/futu-stock-mcp-server) - Futu OpenAPI MCP server for HK, US and A-share Level-2 quotes, candlesticks, positions and order placement, shipped with its own `SKILL.md`.
 - [visusnet/coinbase-mcp-server](https://github.com/visusnet/coinbase-mcp-server) - MCP server and native Claude Skill (`coinbase-trading`) integrating Coinbase Advanced Trading API for autonomous trade execution.
 
 ---
 
-## 🏗️ Skill-Native Quant Frameworks
+## 🏗 Skill-Native Quant Frameworks
 
 *Autonomous multi-agent quantitative platforms designed around composable skills.*
 - [AI4Finance-Foundation/FinRobot](https://github.com/AI4Finance-Foundation/FinRobot) - Open-source multi-agent platform orchestrating specialized roles (Market Analyst, 10-K Financial Analyst, Quantitative Trader, Risk Manager) for equity research.
 - [jesson-hh/financial-analyst](https://github.com/jesson-hh/financial-analyst) - A-share research-to-trading workstation coordinating 16+ sub-agents whose roles are defined as 28 `SKILL.md` files, covering report parsing, factor screening and bull/bear risk debate.
 - [microsoft/RD-Agent](https://github.com/microsoft/RD-Agent) - Autonomous R&D multi-agent framework by Microsoft Research automating hypothesis generation, factor implementation, and backtesting against Microsoft Qlib.
 - [Open-Finance-Lab/AgenticTrading](https://github.com/Open-Finance-Lab/AgenticTrading) - Open experimental platform and paper-trading sandbox for LLM trading agents, with multi-model orchestration, simulated matching and traceable decision logs.
+- [OpenByteInc/QuantDinger](https://github.com/OpenByteInc/QuantDinger) - Open-source AI Trading OS integrating multi-agent research, Python strategy synthesis, event-driven backtesting, and live execution across equities, crypto, and forex with multi-tenant SaaS features.
+- [Polymarket/agents](https://github.com/Polymarket/agents) - Official framework for building and running autonomous trading agents on Polymarket, featuring probabilistic reasoning, automated market-making, and copy-trading strategies.
+- [simonlin1212/TradingAgents-astock](https://github.com/simonlin1212/TradingAgents-astock) - Specialized China A-share adaptation of TradingAgents, deploying 7 LLM analysts in bull/bear debate architectures tailored for dragon-tiger rankings, hot money tracking, and float lockup schedules.
 - [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) - Institutional trading desk multi-agent framework built with LangGraph where specialized LLM roles collaborate in structured debate and risk cycles.
+- [The-Swarm-Corporation/AutoHedge](https://github.com/The-Swarm-Corporation/AutoHedge) - Enterprise autonomous agent hedge fund architecture combining swarm intelligence and specialized LLM agents for automated market analysis, risk budgeting, and algorithmic trade execution.
 - [tohnee/investagent](https://github.com/tohnee/investagent) - Multi-agent investment research framework combining industry chain analysis, Buffett valuation filters, and QuantDinger backtesting.
+- [TraderAlice/OpenAlice](https://github.com/TraderAlice/OpenAlice) - Personal AI trading orchestrator covering equities, crypto, commodities, forex, and macro, managing the complete trade lifecycle from research and entry to continuous monitoring and exit.
+- [ValueCell-ai/valuecell](https://github.com/ValueCell-ai/valuecell) - Community-driven multi-agent financial platform combining modular MCP tools, collaborative research workflows, and conversational interfaces for equity and crypto analysis.
 - [virattt/ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) - Multi-agent hedge-fund framework where investor-persona, fundamentals, technicals, sentiment, risk and portfolio agents deliberate before a trade decision, with a bundled backtester.
 - [yiyan-yixing/quant-trading-skills](https://github.com/yiyan-yixing/quant-trading-skills) - 11-role collaborative quant agent framework featuring 20 core skills, 3-tier memory, and adversarial challenge protocols.
 
@@ -295,8 +315,13 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 *Benchmarks and forward-testing harnesses that score quant agents on executable tasks rather than on prose.*
 
-- [QF-Bench/QuantitativeFinance-Bench](https://github.com/QF-Bench/QuantitativeFinance-Bench) - State-aware interactive benchmark scoring agents on dirty-data cleaning, runtime debugging, factor engineering and portfolio optimisation inside an isolated Docker sandbox.
+- [DidierRLopes/openbb-workspace-bench](https://github.com/DidierRLopes/openbb-workspace-bench) - Terminal-Bench-style evaluation harness scoring AI agents on multi-turn financial tasks inside composable OpenBB Workspace environments via MCP tools.
+- [general-liquidity/sharpebench](https://github.com/general-liquidity/sharpebench) - Luck-robust trading agent benchmark evaluating true statistical edge through repeated runs, deflation corrections, statistical significance tests, and a deterministic Rust kernel.
+- [HephaestLab/TraderHarness](https://github.com/HephaestLab/TraderHarness) - Leakage-resistant backtesting harness, deterministic replay engine, and training trajectory synthesizer for LLM trading agents with native China A-share support.
 - [LimexAILab/QuantCode-Bench](https://github.com/LimexAILab/QuantCode-Bench) - Benchmark measuring whether a model can turn a natural-language strategy idea into executable Backtrader code, graded through compile, backtest-execution and semantic-alignment stages.
+- [microsoft/FinanceBenchmark](https://github.com/microsoft/FinanceBenchmark) - Microsoft benchmark evaluating financial agents across obligation research, performance analysis, and business brief synthesis with live internet and ERP/Finance MCP integrations.
+- [QF-Bench/QuantitativeFinance-Bench](https://github.com/QF-Bench/QuantitativeFinance-Bench) - State-aware interactive benchmark scoring agents on dirty-data cleaning, runtime debugging, factor engineering and portfolio optimisation inside an isolated Docker sandbox.
+- [The-FinAI/Agent_Market_Arena](https://github.com/The-FinAI/Agent_Market_Arena) - Live multi-market trading benchmark (arXiv:2510.11695) pitting LLM agents against each other in real-time competitive market environments across multiple asset classes.
 - [ulab-uiuc/live-trade-bench](https://github.com/ulab-uiuc/live-trade-bench) - Forward-testing harness for LLM trading agents on live equity and prediction-market streams, avoiding lookahead leakage by construction.
 
 ## 🧪 Miscellaneous & Other Skills
@@ -319,7 +344,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for submission details.
 
 ---
 
-## ⚠️ Disclaimer
+## ⚠ Disclaimer
 
 This project is for research and educational purposes only. Nothing here constitutes investment advice, an offer, or a solicitation to buy or sell any security or derivative.
 
