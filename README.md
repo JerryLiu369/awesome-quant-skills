@@ -155,6 +155,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [YichengYang-Ethan/oracle3-prediction-market-agent](https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent) - Prediction-market arbitrage engine and MCP server scanning fee-adjusted no-arbitrage gaps across Kalshi, Polymarket and Solana, with 12 `SKILL.md` files and pre-trade risk rails.
 
 ### US & Global Equities
+- [AhaSignals/value-investor-skill](https://github.com/AhaSignals/value-investor-skill) - US nonfinancial equity research skill for Claude Code and Codex: company-name SEC/price retrieval, cash-flow and historical P/E screens, source-hash replay, and a reproducible Microsoft financial example; research only.
 - [AlphaGBM/skills](https://github.com/AlphaGBM/skills) - 27 `SKILL.md` workflows for options and equity research, spanning Greeks attribution, IV percentile ranking, volatility-surface fitting and earnings-crush backtests.
 - [daniel3303/Equibles](https://github.com/daniel3303/Equibles) - Self-hosted financial terminal MCP server providing 62+ agent tools across SEC EDGAR, 13F ownership, congressional disclosures, and FRED data.
 - [jsconiers/capitol-trades-mcp](https://github.com/jsconiers/capitol-trades-mcp) - FastMCP server providing 23 specialized tools to track US congressional stock trades from Capitol Trades without API keys.

@@ -155,6 +155,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [YichengYang-Ethan/oracle3-prediction-market-agent](https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent) - 预测市场套利引擎与 MCP 服务，跨 Kalshi、Polymarket 与 Solana 搜索扣除手续费后的无套利机会，含 12 个 `SKILL.md` 与交易前风控。
 
 ### 美股与全球股票
+- [AhaSignals/value-investor-skill](https://github.com/AhaSignals/value-investor-skill) - 面向 Claude Code 与 Codex 的美股非金融企业研究 skill：输入公司名获取 SEC 财务数据与历史行情，扫描现金流和历史 PE，校验来源哈希并断网重放，附可复算的微软财务案例；仅供研究。
 - [AlphaGBM/skills](https://github.com/AlphaGBM/skills) - 27 个面向期权与股票研究的 `SKILL.md`，覆盖希腊字母归因、IV 分位排名、波动率曲面拟合与财报 IV Crush 回测。
 - [daniel3303/Equibles](https://github.com/daniel3303/Equibles) - 自托管金融终端 MCP 服务，62+ agent 工具，覆盖 SEC EDGAR、13F 持仓、国会交易披露与 FRED 数据。
 - [jsconiers/capitol-trades-mcp](https://github.com/jsconiers/capitol-trades-mcp) - 跟踪美国国会议员股票交易的 FastMCP 服务，23 个专用工具，数据源 Capitol Trades，无需 API key。
