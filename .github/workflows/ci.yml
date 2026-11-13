@@ -34,7 +34,7 @@ jobs:
           # localhost = local-run examples in mirrored skills;
           # Owner/Repo = CONTRIBUTING template placeholder;
           # quantbuddy.cn = POST-only API endpoints (GET 404s by design);
-          # financialmodelingprep.com = bot-blocks non-browser agents (403);
+          # financialmodelingprep.com, x.com = bot-block non-browser agents (403);
           # fulltextSearch/{code6}, MCP_HOST = template URLs with placeholders;
           # github.com/rollysys/.* = rollysys/use_cninfo upstream was taken offline,
           #   and this repo preserves its out-of-print local mirror at
@@ -52,9 +52,10 @@ jobs:
             --exclude 'github\.com/rollysys/.*'
             --exclude 'quantbuddy\.cn/.*'
             --exclude 'financialmodelingprep\.com/.*'
+            --exclude 'x\.com/.*'
             --exclude 'fulltextSearch'
             --exclude 'MCP_HOST'
             './README.md' './README.zh-CN.md' './CONTRIBUTING.md' './NOTICE.md' './SECURITY.md'
-            './skills/**/*.md' './scripts/*'
+            './skills/**/*.md'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
