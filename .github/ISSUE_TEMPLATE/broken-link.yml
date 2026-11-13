@@ -1,0 +1,40 @@
+name: Broken Link / Archived / License Drift
+description: Report a 404/renamed repository, archived upstream project, or license mismatch.
+title: "[Broken Link]: <Owner/Repo>"
+labels: ["bug", "maintenance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report dead links, renamed/transferred repositories, archived upstreams, or license drift in `NOTICE.md` / `skills/`.
+
+  - type: input
+    id: repo_or_path
+    attributes:
+      label: Affected Repository URL or Local Path
+      description: Paste the GitHub URL or `skills/.../SKILL.md` path.
+      placeholder: https://github.com/Owner/Repo
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_kind
+    attributes:
+      label: Issue Type
+      options:
+        - 404 / Repository deleted or made private
+        - Repository renamed / transferred (redirect)
+        - Upstream archived / unmaintained
+        - License drift or missing attribution in NOTICE.md
+        - Unreferenced or out-of-sync local mirror
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details & Evidence
+      description: Share observed HTTP status, new upstream URL (if renamed), or license details.
+      placeholder: Observed HTTP 404 when running scripts/check_repos.py ...
+    validations:
+      required: true

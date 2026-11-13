@@ -1,6 +1,7 @@
 <!--
   Imported from: https://github.com/rollysys/use_cninfo
   Source Path: skill/SKILL.md
+  Status: Upstream repo (rollysys/use_cninfo) removed/private as of 2026-11; retained as local archived mirror.
   Curated for awesome-quant-skills
 -->
 
@@ -22,6 +23,8 @@ description: 按需抓取 A 股上市公司公告。覆盖巨潮资讯网(cninfo
 - "搜含'减持'的公告 / 找重大资产重组类公告"
 
 ## 前置依赖(用户机器上必须先装好)
+
+> 注意：原上游仓库已于 2026-11 下线/转私，此处完整保留本地归档 SKILL.md 供离线参考与历史溯源。
 
 ```bash
 # 1. 本工具

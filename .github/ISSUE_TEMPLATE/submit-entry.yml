@@ -1,0 +1,88 @@
+name: Submit New Entry
+description: Recommend an Agent Skill, Quant MCP Server, or Skill-Native Framework for the directory.
+title: "[Entry]: <Owner/Repo>"
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an addition to **Awesome Quant Skills**!
+        Please make sure the project is actively usable by an AI agent (`SKILL.md`, MCP server, or skill-native framework).
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: Repository URL
+      description: Full GitHub URL (e.g., https://github.com/Owner/Repo)
+      placeholder: https://github.com/Owner/Repo
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Target Category
+      description: Choose the single best-fitting section in README.md.
+      options:
+        - Vertical Market Stacks / China A-Shares & Domestic Futures
+        - Vertical Market Stacks / Crypto & Web3 Markets
+        - Vertical Market Stacks / US & Global Equities
+        - Universal Quant Pipeline / 1. Data Ingestion & Market Feeds
+        - Universal Quant Pipeline / 2. Alpha Generation & Factor Mining
+        - Universal Quant Pipeline / 3. Portfolio & Risk Allocation
+        - Universal Quant Pipeline / 4. Backtesting & Safety Auditing
+        - Universal Quant Pipeline / 5. Execution & Order Routing
+        - Quant MCP Servers / Market Feeds & Fundamentals
+        - Quant MCP Servers / Broker & Exchange Gateways
+        - Skill-Native Quant Frameworks
+        - Agent Evaluation & Benchmarks
+        - Miscellaneous & Other Skills
+    validations:
+      required: true
+
+  - type: dropdown
+    id: entry_type
+    attributes:
+      label: Entry Type
+      options:
+        - Native Agent Skill (SKILL.md)
+        - Quant MCP Server
+        - Skill-Native Framework
+        - Evaluation / Benchmark
+    validations:
+      required: true
+
+  - type: dropdown
+    id: auth_pricing
+    attributes:
+      label: API Key / Pricing Requirement
+      options:
+        - Free / Zero-auth
+        - Free API key required
+        - Freemium (free tier available)
+        - Paid / Commercial / Institutional license required
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Objective Description
+      description: One concise, objective sentence describing what it does and which harnesses it supports.
+      placeholder: MCP server exposing ... for Claude Code, Codex, and Hermes.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: compliance_checks
+    attributes:
+      label: Quality & Compliance Checklist
+      options:
+        - label: The repository is not already listed in README.md (checked for duplicates).
+          required: true
+        - label: No live API keys, credentials, or secrets are included in the repo or this submission.
+          required: true
+        - label: Backtest/alpha claims avoid lookahead bias or unadjusted-price traps (if applicable).
+          required: false
+        - label: License is clearly stated in the upstream repository.
+          required: true

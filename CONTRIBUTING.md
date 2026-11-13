@@ -20,4 +20,5 @@ Thank you for contributing! We aim to maintain a high-signal index of agent skil
 1. Fork the repository.
 2. Add your entry to `README.md`.
 3. For mirrored skills under `skills/`: keep the `Imported from` header with the upstream URL, and add the matching row (local path, upstream, license) to `NOTICE.md` (CI checks every mirrored skill is listed there).
-4. Submit a PR with a clear title (e.g., `Add Owner/Repo to Alpha Generation`).
+4. Run `python3 scripts/validate.py` locally before opening a PR.
+5. Submit a PR with a clear title (e.g., `Add Owner/Repo to Alpha Generation`).

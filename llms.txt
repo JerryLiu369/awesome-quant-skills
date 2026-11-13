@@ -11,9 +11,11 @@
 
 ## Layout (stable contract)
 
-- `skills/<category>/<name>/SKILL.md` — 33 mirrored skills, `SKILL.md`-only
+- `skills/<category>/<name>/SKILL.md` — 45 mirrored skills, `SKILL.md`-only
   excerpts; each file has an `Imported from` header with its upstream source.
   Frontmatter always has `name` + `description`.
+- `scripts/install_skill.sh` — helper installer for local mirrored skills
+  (e.g. `./scripts/install_skill.sh ctp-api --target claude`).
 - Categories: `alpha-factors`, `backtesting-audit`, `china-markets`,
   `crypto-web3`, `global-equities`, `portfolio-risk`.
 - README directory sections (link-only upstream repos, no local copy):

@@ -40,22 +40,34 @@ project. The HTML comment header in each `SKILL.md` records its
 | `skills/backtesting-audit/stats-test-picker/SKILL.md` | saksham10arora-dotcom/quant-skills | Retains upstream license — see source |
 | `skills/backtesting-audit/vectorbt-backtest/SKILL.md` | marketcalls/vectorbt-backtesting-skills | Retains upstream license — see source |
 | `skills/backtesting-audit/vectorbt-optimize/SKILL.md` | marketcalls/vectorbt-backtesting-skills | Retains upstream license — see source |
+| `skills/china-markets/a-stock-data/SKILL.md` | simonlin1212/a-stock-data | Apache-2.0 |
 | `skills/china-markets/akquant/SKILL.md` | lzwme/finance-quant-skills | Retains upstream license — see source |
 | `skills/china-markets/ashare-pre-st-filter/SKILL.md` | HKUDS/Vibe-Trading | Retains upstream license — see source |
-| `skills/china-markets/cninfo-disclosure/SKILL.md` | rollysys/use_cninfo | Retains upstream license — see source |
+| `skills/china-markets/cninfo-disclosure/SKILL.md` | rollysys/use_cninfo (upstream offline/private as of 2026-11; archived local mirror) | Retains upstream license — see source |
 | `skills/china-markets/ctp-api/SKILL.md` | algoderiv/agent-skills | Retains upstream license — see source |
+| `skills/china-markets/hithink-finance-financials/SKILL.md` | Hithink-Tech-Org/Financial-API | MIT |
+| `skills/china-markets/hithink-finance-market/SKILL.md` | Hithink-Tech-Org/Financial-API | MIT |
+| `skills/china-markets/longbridge-derivatives/SKILL.md` | longbridge/skills | MIT |
+| `skills/china-markets/longbridge-market-data/SKILL.md` | longbridge/skills | MIT |
 | `skills/china-markets/ptrade-strategy-writing/SKILL.md` | xxbbzy/ptrade-agent-skills | Retains upstream license — see source |
 | `skills/china-markets/quant-buddy/SKILL.md` | pseudo-longinus/quant-buddy-skills | Retains upstream license — see source; requires commercial `quant-buddy` API backend |
-| `skills/china-markets/ssquant-futures/SKILL.md` | quantskills/agent-ssquant | **GPL-3.0** (declared in-file) |
+| `skills/china-markets/ssquant-futures/SKILL.md` | quantskills/agent-ssquant | **GPL-3.0** (declared in SKILL.md; upstream repo root is MIT) |
 | `skills/china-markets/tdxquant/SKILL.md` | lingfan/tdxquant-mcp | Retains upstream license — see source |
 | `skills/china-markets/tqsdk-trading/SKILL.md` | shinnytech/tqsdk-python | Retains upstream license — see source |
+| `skills/china-markets/uzi-deep-analysis/SKILL.md` | wbh604/UZI-Skill | MIT |
 | `skills/china-markets/wencai-screener/SKILL.md` | raidery/quant-skills | Retains upstream license — see source |
+| `skills/crypto-web3/ccxt-python/SKILL.md` | ccxt/ccxt | MIT |
 | `skills/crypto-web3/defillama-data/SKILL.md` | DefiLlama/defillama-skills | Retains upstream license — see source |
 | `skills/crypto-web3/defillama-flows/SKILL.md` | DefiLlama/defillama-skills | Retains upstream license — see source |
 | `skills/crypto-web3/defillama-yields/SKILL.md` | DefiLlama/defillama-skills | Retains upstream license — see source |
+| `skills/crypto-web3/okx-dex-market/SKILL.md` | okx/onchainos-skills | MIT |
 | `skills/crypto-web3/perp-funding-basis/SKILL.md` | HKUDS/Vibe-Trading | Retains upstream license — see source |
 | `skills/crypto-web3/pine-debugger/SKILL.md` | TradersPost/pinescript-agents | Retains upstream license — see source |
 | `skills/crypto-web3/pine-developer/SKILL.md` | TradersPost/pinescript-agents | Retains upstream license — see source |
+| `skills/global-equities/alphagbm-greeks/SKILL.md` | AlphaGBM/skills | MIT |
+| `skills/global-equities/alphagbm-vol-surface/SKILL.md` | AlphaGBM/skills | MIT |
+| `skills/global-equities/comps-analysis/SKILL.md` | anthropics/financial-services | Apache-2.0 |
+| `skills/global-equities/dcf-model/SKILL.md` | anthropics/financial-services | Apache-2.0 |
 | `skills/global-equities/edgar-financials/SKILL.md` | dgunning/edgartools | Retains upstream license — see source |
 | `skills/global-equities/llmquant-equities/SKILL.md` | LLMQuant/skills | Retains upstream license — see source |
 | `skills/global-equities/llmquant-macro/SKILL.md` | LLMQuant/skills | Retains upstream license — see source |
