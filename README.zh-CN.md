@@ -185,6 +185,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [YichengYang-Ethan/oracle3-prediction-market-agent](https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent) - 预测市场套利引擎与 MCP 服务，跨 Kalshi、Polymarket 与 Solana 搜索扣除手续费后的无套利机会，含 12 个 `SKILL.md` 与交易前风控。
 
 ### 美股与全球股票
+- [AhaSignals/value-investor-skill](https://github.com/AhaSignals/value-investor-skill) - 面向 Claude Code 与 Codex 的美股非金融企业研究 skill：输入公司名获取 SEC 财务数据与历史行情，扫描现金流和历史 PE，校验来源哈希并断网重放，附可复算的微软财务案例；仅供研究。
 - [AlphaGBM/skills](https://github.com/AlphaGBM/skills) - 27 个面向期权与股票研究的 `SKILL.md`，覆盖希腊字母归因、IV 分位排名、波动率曲面拟合与财报 IV Crush 回测（镜像于 `skills/global-equities/alphagbm-greeks/SKILL.md`、`skills/global-equities/alphagbm-vol-surface/SKILL.md`）。
 - [anthropics/financial-services](https://github.com/anthropics/financial-services) - Anthropic 官方金融服务参考 Agent、Skill 与数据连接器套件，面向投行、股票研究、私募股权与财富管理，同时提供 Claude Cowork 插件与 Managed Agent 模板（LSEG、S&P Global 等第三方连接器需对应机构数据源权限；镜像于 `skills/global-equities/dcf-model/SKILL.md`、`skills/global-equities/comps-analysis/SKILL.md`）。
 - [daniel3303/Equibles](https://github.com/daniel3303/Equibles) - 自托管金融终端 MCP 服务，62+ agent 工具，覆盖 SEC EDGAR、13F 持仓、国会交易披露与 FRED 数据。
