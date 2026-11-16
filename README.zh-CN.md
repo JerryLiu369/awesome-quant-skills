@@ -110,6 +110,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [aliwangzai/myquant-dev](https://github.com/aliwangzai/myquant-dev) - 掘金量化 Claude Code Skill，内置 29 篇 GM SDK 参考，指导 Agent 编写合规的事件驱动策略（订阅、多周期查询、回测配置、委托执行）。
 - [CharmYue/ashare-mcp](https://github.com/CharmYue/ashare-mcp) - 基于 FastMCP 与 AKShare（Baostock/Tushare 降级）的 A 股数据 MCP，覆盖涨跌停池、龙虎榜、融资融券、筹码分布与三大报表公告。
 - [dfkai/xtquantai](https://github.com/dfkai/xtquantai) - 面向 QMT 投研终端的 Agent Skills，其中 `qmt-inner-backtest` 把因子研究转成 QMT 原生截面回测，内含 Barra 风格处理与防未来函数检查。
+- [dustinliang666-blip/lava-mcp](https://github.com/dustinliang666-blip/lava-mcp) - 熔岩 Lava：托管式 Streamable HTTP MCP、REST API 与 `SKILL.md`，以只读结构化数据提供 A 股个股与概念板块消息面热度（热门概念、相关标的、要点摘要、日频热度面板），支持 Claude Code、Cursor、Codex 等 MCP 客户端（按请求计费的 API key，首充赠送代金券）。
 - [electkismet/eltdx](https://github.com/electkismet/eltdx) - Rust 驱动的通达信（TDX）A 股行情协议 Python 库、HTTP/WebSocket 接口与 MCP 服务，支持快照、分时、逐笔、K 线与集合竞价数据（非商业学习与数据研究许可）。
 - [gaaiyun/joinquant-skill](https://github.com/gaaiyun/joinquant-skill) - 聚宽策略开发 Skill，内置基于 AST 的静态检查器（`scripts/strategy_lint.py`）拦截未来函数与未复权价格，并提供 `jqskill_mcp` 工具服务。
 - [guangxiangdebizi/FinanceMCP-DCTHS](https://github.com/guangxiangdebizi/FinanceMCP-DCTHS) - TypeScript MCP 服务，融合 Tushare 与东财/同花顺双源，提供板块与概念指数、成分股、领涨股及板块资金流，支持 stdio 与 HTTP。
