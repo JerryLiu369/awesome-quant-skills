@@ -303,6 +303,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [Alex2Yang97/yahoo-finance-mcp](https://github.com/Alex2Yang97/yahoo-finance-mcp) - 生产级 Yahoo Finance MCP 服务，暴露历史 OHLCV、期权链、基本面比率与公司行动。
 - [alphavantage/alpha_vantage_mcp](https://github.com/alphavantage/alpha_vantage_mcp) - Alpha Vantage 官方 MCP，提供行情、60+ 技术指标、基本面、外汇与加密数据，并附 `global-stock-analysis` 技能。
 - [atilaahmettaner/tradingview-mcp](https://github.com/atilaahmettaner/tradingview-mcp) - 涵盖 39 个工具的 TradingView MCP 服务，支持股票、加密、外汇与期货的多周期技术指标计算、市场选股筛选器、回测及情绪分析。
+- [azmartone67/dchub-mcp-server](https://github.com/azmartone67/dchub-mcp-server) - DC Hub 官方 MCP 服务：数据中心与能源情报的编排层。先调用 `execute_plan`，即可获得电力与天然气价格、电网与并网排队、数据中心与托管（colocation）市场、光纤、选址与容量方面带日期和引用的答案，包括 Data Center Power Index (DCPI)。远程 streamable-http 端点 `https://dchub.cloud/mcp`，适用于 Claude Code、Codex 等 MCP 客户端；`DCHUB_API_KEY` 可选。
 - [bidouilles/mcp-tradingview-server](https://github.com/bidouilles/mcp-tradingview-server) - FastMCP 服务，直调 TradingView 技术指标（RSI、MACD、EMA）与 OHLCV 蜡烛流。
 - [cfdude/mcp-finnhub](https://github.com/cfdude/mcp-finnhub) - 基于 Finnhub API 的 FastMCP 服务，覆盖实时行情、含形态识别的技术分析、基本面、目标价、内部人交易与市场情绪。
 - [doggybee/mcp-server-ccxt](https://github.com/doggybee/mcp-server-ccxt) - 统一 CCXT 交易与行情的 MCP 服务，覆盖 20+ 加密交易所。
