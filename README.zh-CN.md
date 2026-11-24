@@ -194,6 +194,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [himself65/finance-skills](https://github.com/himself65/finance-skills) - 遵循 `agentskills.io` 开放标准的金融分析与交易 Skill 集合，涵盖 DCF/SOTP 估值、财报前瞻与复盘、预期修正、ETF 折溢价、期权收益图与 SEPA 策略，支持 Codex、Claude Code 与 Cursor。
 - [Jakeschincariol/day-trader-skill](https://github.com/Jakeschincariol/day-trader-skill) - 面向美股日内交易的 11 个 Claude Code Skill 套件，基于 Yahoo Finance、Nasdaq Trader、SEC EDGAR 等公开数据源实现形态扫描、突发新闻追踪、买卖时机与万次模拟回放，默认仅纸面交易（免注册、免 API key）。
 - [JoelLewis/finance_skills](https://github.com/JoelLewis/finance_skills) - 面向 Claude Code 的金融服务插件集，包含跨越 7 大领域（基础金融数学、投资管理、监管合规、投顾实务、交易运营等）的 81+ Skill 及配套 Python 参考脚本。
+- [johnisanerd/claude-skill-congress-stock-trades-api](https://github.com/johnisanerd/claude-skill-congress-stock-trades-api) - 面向 Claude Code 与 Codex 的 Agent Skill，通过 Apify Actor 以 JSON 获取美国众议院和参议院议员的股票交易披露（议员、股票代码、金额区间、交易与申报日期）；需要 Apify 账号，按结果计费。
 - [jsconiers/capitol-trades-mcp](https://github.com/jsconiers/capitol-trades-mcp) - 跟踪美国国会议员股票交易的 FastMCP 服务，23 个专用工具，数据源 Capitol Trades，无需 API key。
 - [LLMQuant/skills](https://github.com/LLMQuant/skills) - 18 个模块化 agent skill 的标准仓库（`llmquant-equities`、`llmquant-macro`、`llmquant-risk`，镜像于 `skills/global-equities/llmquant-equities/SKILL.md`、`skills/global-equities/llmquant-macro/SKILL.md`、`skills/portfolio-risk/llmquant-risk/SKILL.md`），兼容 Claude Code、Codex、Hermes Agent。
 - [pseudo-longinus/quant-buddy-skills](https://github.com/pseudo-longinus/quant-buddy-skills) - 覆盖美/港股行情、宏观指标与多资产筛选的全套基建 skill（镜像于 `skills/china-markets/quant-buddy/SKILL.md`；需商业 API 后端）。
