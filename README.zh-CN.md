@@ -1,10 +1,37 @@
-# Awesome Quant Skills [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![CI](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/JerryLiu369/awesome-quant-skills)](https://github.com/JerryLiu369/awesome-quant-skills) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<div align="center">
+
+<img src="assets/banner.svg" alt="Awesome Quant Skills" width="100%">
+
+<h3>面向量化金融、系统化研究与算法交易的 Agent Skill 与 MCP 服务精选目录</h3>
+
+<a href="https://awesome.re"><img alt="Awesome" src="https://awesome.re/badge.svg"></a> <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"></a> [![CI](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/JerryLiu369/awesome-quant-skills?style=flat-square)](https://github.com/JerryLiu369/awesome-quant-skills) <a href="CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a><br>
+<img alt="mirrored skills" src="https://img.shields.io/badge/%E9%95%9C%E5%83%8F%20skill-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/%E6%9D%A1%E7%9B%AE-226-informative?style=flat-square">
+
+**适用于**: <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square"> <img alt="Codex" src="https://img.shields.io/badge/Codex-10A37F?style=flat-square"> <img alt="Cursor" src="https://img.shields.io/badge/Cursor-000000?style=flat-square"> <img alt="OpenCode" src="https://img.shields.io/badge/OpenCode-2563EB?style=flat-square"> <img alt="OpenClaw" src="https://img.shields.io/badge/OpenClaw-E11D48?style=flat-square"> <img alt="Hermes" src="https://img.shields.io/badge/Hermes-7C3AED?style=flat-square">
+
+<a href="#-快速上手">快速上手</a> · <a href="skills/README.md">技能目录</a> · <a href="#-按垂直市场分类">目录</a> · <a href="#-量化-mcp-服务">MCP 服务</a> · <a href="#-参与贡献">参与贡献</a>
 
 [English](README.md) | **中文**
 
-> 精选 **Agent Skill**、**量化 MCP 服务**与 **Skill 原生系统**目录，覆盖量化金融、系统化研究与算法交易，可用于 **Claude Code**、**OpenCode**、**Codex**、**Cursor**、**OpenClaw**、**Hermes** 及其他兼容 `SKILL.md` 的 harness。
+</div>
+
 
 与堆满年久失修代码库的传统量化列表不同，本目录只收录**自主 agent 能力**：可机读执行的 `SKILL.md` 工作流、MCP（Model Context Protocol）工具和确定性量化推理。
+
+---
+
+## 一览
+
+| 板块 | 内容 | 条目 |
+|:--|:--|--:|
+| 🌐 [按垂直市场分类](#-按垂直市场分类) | 分地区的完整栈：中国 A 股与期货、加密与 DeFi、美股与全球股票 | 96 |
+| ⚙ [通用量化流水线](#-通用量化流水线) | 数据、因子、组合、回测审计与执行 skill | 68 |
+| 🔌 [量化 MCP 服务](#-量化-mcp-服务) | 行情、基本面与券商网关 MCP 服务 | 32 |
+| 🏗 [Skill 原生量化框架](#-skill-原生量化框架) | 拥有模块化 skill 架构的开源 agent 框架 | 19 |
+| 📊 [Agent 评测与基准](#-agent-评测与基准) | 金融 agent 的评测与基准 | 10 |
+| 🧪 [其他 Skill](#-其他-skill) | 其他值得一看的内容 | 1 |
+
+**图例：**带 `mirrored at` 标注的条目在 [`skills/`](skills/) 下有本地 `SKILL.md` 副本（见[技能目录](skills/README.md)），其余为纯链接。
 
 ---
 
@@ -178,7 +205,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [pmxt-dev/pmxt](https://github.com/pmxt-dev/pmxt) - 类 CCXT 风格的预测市场统一 API 与可自托管 SDK，支持 Polymarket、Kalshi、Opinion 与 Limitless 的行情获取与交易路由（实盘交易需对应预测市场平台凭据）。
 - [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) - 连接 AI agent 与 Solana 协议的基础开源工具包，60+ action（Jupiter、Raydium、Orca、Meteora、Drift）。
 - [Senpi-ai/senpi-skills](https://github.com/Senpi-ai/senpi-skills) - 面向 Hyperliquid 永续的开源技能库，15 个 `SKILL.md`，覆盖市场脉搏、聪明钱流向、资金费率、仓位管理与风控护栏。
-- - [sieblyio/agent-skills](https://github.com/sieblyio/agent-skills) - MIT `SKILL.md` for Claude Code, Codex, Cursor and OpenClaw that guides agents writing JavaScript/TypeScript integrations with the open-source Siebly SDKs (Binance, OKX, Bitget, Gate, KuCoin, Kraken, Coinbase, Hyperliquid) for REST, WebSocket streams and WebSocket API requests. Docs: https://sieblyio.github.io/docs/
+- [sieblyio/agent-skills](https://github.com/sieblyio/agent-skills) - MIT `SKILL.md` for Claude Code, Codex, Cursor and OpenClaw that guides agents writing JavaScript/TypeScript integrations with the open-source Siebly SDKs (Binance, OKX, Bitget, Gate, KuCoin, Kraken, Coinbase, Hyperliquid) for REST, WebSocket streams and WebSocket API requests. Docs: https://sieblyio.github.io/docs/
 - [smartcontractkit/chainlink-agent-skills](https://github.com/smartcontractkit/chainlink-agent-skills) - Chainlink 官方 `agentskills.io` 规范 Skill 集，覆盖 CRE 工作流、CCIP 跨链协议、多链 Data Feeds、Data Streams、代币化基金 ACE 合规及节点运维诊断。
 - [SpartanLabsXyz/simmer-sdk](https://github.com/SpartanLabsXyz/simmer-sdk) - 面向 Agent 的预测市场套件：37 个 `SKILL.md`、内置 `simmer-mcp` 服务与 Python SDK，可在 Polymarket、Kalshi 与 Hyperliquid 上做模拟交易。
 - [StalkChain/fomo-mcp-api](https://github.com/StalkChain/fomo-mcp-api) - 支持 OAuth 的托管 MCP 服务，提供 Solana 代币持有人数据及跟踪交易者的资金流向，以及 Hyperliquid 资金费率和 K 线。可在 Claude、Codex、Cursor 和 Gemini CLI 中使用（部分查询消耗积分）。
@@ -204,6 +231,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [stocktwits/stocktwits-mcp](https://github.com/stocktwits/stocktwits-mcp) - 官方 StockTwits MCP 服务，免 auth 推送散户情绪分、热门 ticker 与社群热度动量。
 - [yennanliu/InvestSkill](https://github.com/yennanliu/InvestSkill) - 零运行时依赖的 34 个美股投研结构化分析框架合集，适用于 Claude Code、Cursor、Gemini CLI、GitHub Copilot 与 ChatGPT（无需 API key 与付费订阅）。
 - [zen-tradings/retail-skills-us](https://github.com/zen-tradings/retail-skills-us) - 面向美股散户的 skill：规则执行、税损收割与零售算法配置。
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 ---
 
@@ -294,6 +323,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [Synpath-ai/synpath](https://github.com/Synpath-ai/synpath) - Python/Rust 智能订单路由（SOR）与高级执行算法（TWAP、冰山、pegged），面向预测与金融场所。
 - [TradeRouter/trade-router-mcp](https://github.com/TradeRouter/trade-router-mcp) - 算法执行 MCP 服务，暴露 TWAP 切片、DCA 与多 DEX 路由，带 MEV 保护。
 
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
+
 ---
 
 ## 🔌 量化 MCP 服务
@@ -336,6 +367,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [shuizhengqi1/futu-stock-mcp-server](https://github.com/shuizhengqi1/futu-stock-mcp-server) - 富途 OpenAPI 的 MCP 服务，提供港/美/A 股 Level-2 行情、K 线、持仓与下单，并自带 `SKILL.md`。
 - [visusnet/coinbase-mcp-server](https://github.com/visusnet/coinbase-mcp-server) - 集成 Coinbase Advanced Trading API 的 MCP 服务与原生 Claude Skill（`coinbase-trading`），支持自主交易执行。
 
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
+
 ---
 
 ## 🏗 Skill 原生量化框架
@@ -361,6 +394,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [virattt/ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) - 多智能体对冲基金框架，由投资大师人格、基本面、技术面、情绪、风控与组合经理 Agent 依次决策，并自带回测器。
 - [yiyan-yixing/quant-trading-skills](https://github.com/yiyan-yixing/quant-trading-skills) - 11 角色协作量化 agent 框架，20 个核心 skill、3 层记忆、对抗挑战协议。
 
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
+
 ---
 
 ## 📊 Agent 评测与基准
@@ -384,6 +419,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 - [BoyceFong/quant-skill-build](https://github.com/BoyceFong/quant-skill-build) - skill 编写脚手架，面向 Codex 与量化 prompt 写作优化。
 
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
+
 ---
 
 ## 🤝 参与贡献
@@ -395,6 +432,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 3. **不编造工具**：skill 引用的脚本与接口必须可验证、可复现。
 
 投稿细则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 ---
 
@@ -412,6 +451,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 安全默认值见 [SECURITY.md](SECURITY.md)（先 paper、人工审批、key 管理）。
 
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
+
 ---
 
 ## 📄 许可证
@@ -419,3 +460,9 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 本仓自己的整理工作（`README.md`、`.github/`、`CONTRIBUTING.md`）按 [MIT License](LICENSE) 发布。
 
 [`skills/`](skills/) 下的文件从上游镜像而来，**保留原许可**（见 [NOTICE.md](NOTICE.md) 与各 `SKILL.md` 文件头的 `Imported from`）。部分镜像属 GPL-3.0 系——这些文件的二次分发遵循上游条款，不是 MIT。
+
+## Star 趋势
+
+<a href="https://star-history.com/#JerryLiu369/awesome-quant-skills&Date"><img alt="Star History" src="https://api.star-history.com/svg?repos=JerryLiu369/awesome-quant-skills&type=Date" width="600"></a>
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>

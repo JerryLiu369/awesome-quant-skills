@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/JerryLiu369/awesome-quant-skills/blob/main/CONTRIBUTING.md
+    about: Inclusion criteria, entry format and local validation steps.
+  - name: Security policy
+    url: https://github.com/JerryLiu369/awesome-quant-skills/blob/main/SECURITY.md
+    about: Report a security concern privately instead of opening a public issue.

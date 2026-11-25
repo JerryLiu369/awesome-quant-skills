@@ -84,5 +84,7 @@ body:
           required: true
         - label: Backtest/alpha claims avoid lookahead bias or unadjusted-price traps (if applicable).
           required: false
+        - label: I will add it to both README.md and README.zh-CN.md if asked (or I am opening a PR).
+          required: false
         - label: License is clearly stated in the upstream repository.
           required: true

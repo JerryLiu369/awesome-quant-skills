@@ -112,6 +112,28 @@ def extract_external_repo_slugs(markdown_text: str) -> list[str]:
     return slugs
 
 
+GLANCE_ROW_RE = re.compile(r"^\|[^|\n]*\]\(#([^)]+)\)[^|\n]*\|[^|\n]*\|\s*(\d+)\s*\|\s*$", re.M)
+
+
+def count_entries_per_h2(markdown_text: str) -> dict[str, int]:
+    """Count directory entries ('- [name](link) - description' list items) under each H2 slug."""
+    counts: dict[str, int] = {}
+    current: str | None = None
+    in_fence = False
+    for line in markdown_text.splitlines():
+        if line.lstrip().startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if line.startswith("## "):
+            current = github_heading_slug(line[3:])
+            counts.setdefault(current, 0)
+        elif current and line.startswith("- ["):
+            counts[current] += 1
+    return {k: v for k, v in counts.items() if v}
+
+
 def run_validations(
     root: Path, allow_unreferenced_mirrors: bool = False
 ) -> list[CheckResult]:
@@ -349,6 +371,60 @@ def run_validations(
             name="mirrors_referenced_in_readmes",
             passed=passed_unref,
             details=details,
+        )
+    )
+
+    # 10. skills/README.md catalog is up to date with the mirrored skills
+    catalog_errors: list[str] = []
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import build_catalog
+
+        out = root / "skills" / "README.md"
+        if build_catalog.ROOT.resolve() != root.resolve():
+            catalog_errors.append("catalog check skipped: --root differs from script repo")
+        elif not out.exists() or out.read_text(encoding="utf-8") != build_catalog.build():
+            catalog_errors.append(
+                "skills/README.md is stale; run: python3 scripts/build_catalog.py"
+            )
+    except Exception as exc:  # noqa: BLE001
+        catalog_errors.append(f"catalog build failed: {exc}")
+    results.append(
+        CheckResult(
+            name="skills_catalog_up_to_date",
+            passed=not catalog_errors,
+            details=catalog_errors or ["skills/README.md matches scripts/build_catalog.py output."],
+        )
+    )
+
+    # 11. Hand-written counts (hero "entries-N" badge, "At a glance" table) match actual entries
+    count_errors: list[str] = []
+    for rel, text in (("README.md", readme_en), ("README.zh-CN.md", readme_zh)):
+        section_counts = count_entries_per_h2(text)
+        glance_rows = [(m.group(1), int(m.group(2))) for m in GLANCE_ROW_RE.finditer(text)]
+        if not glance_rows:
+            count_errors.append(f"{rel}: at-a-glance table not found")
+        total = sum(section_counts.get(a, 0) for a, _ in glance_rows)
+        badge = re.search(r"badge/(?:entries|%E6%9D%A1%E7%9B%AE)-(\d+)-", text)
+        if not badge:
+            count_errors.append(f"{rel}: missing entries-N badge")
+        elif int(badge.group(1)) != total:
+            count_errors.append(
+                f"{rel}: entries badge says {badge.group(1)}, actual entries = {total}"
+            )
+        for anchor, stated in glance_rows:
+            actual = section_counts.get(anchor)
+            if actual is None:
+                count_errors.append(f"{rel}: at-a-glance row links unknown section #{anchor}")
+            elif actual != stated:
+                count_errors.append(
+                    f"{rel}: at-a-glance #{anchor} says {stated}, actual entries = {actual}"
+                )
+    results.append(
+        CheckResult(
+            name="readme_stated_counts",
+            passed=not count_errors,
+            details=count_errors or ["Entries badge and at-a-glance table counts match actual entries."],
         )
     )
 

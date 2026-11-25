@@ -1,10 +1,37 @@
-# Awesome Quant Skills [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![CI](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/JerryLiu369/awesome-quant-skills)](https://github.com/JerryLiu369/awesome-quant-skills) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<div align="center">
 
-> A curated directory of **Agent Skills**, **Quant MCP Servers**, and **Skill-Native Systems** for Quantitative Finance, Systematic Research, and Algorithmic Trading — usable from **Claude Code**, **OpenCode**, **Codex**, **Cursor**, **OpenClaw**, **Hermes**, and other `SKILL.md`-compatible harnesses.
+<img src="assets/banner.svg" alt="Awesome Quant Skills" width="100%">
+
+<h3>Agent Skills &amp; MCP servers for quantitative finance, systematic research and algorithmic trading</h3>
+
+<a href="https://awesome.re"><img alt="Awesome" src="https://awesome.re/badge.svg"></a> <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"></a> [![CI](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/JerryLiu369/awesome-quant-skills?style=flat-square)](https://github.com/JerryLiu369/awesome-quant-skills) <a href="CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a><br>
+<img alt="mirrored skills" src="https://img.shields.io/badge/mirrored%20skills-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/entries-226-informative?style=flat-square">
+
+**Works with**: <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square"> <img alt="Codex" src="https://img.shields.io/badge/Codex-10A37F?style=flat-square"> <img alt="Cursor" src="https://img.shields.io/badge/Cursor-000000?style=flat-square"> <img alt="OpenCode" src="https://img.shields.io/badge/OpenCode-2563EB?style=flat-square"> <img alt="OpenClaw" src="https://img.shields.io/badge/OpenClaw-E11D48?style=flat-square"> <img alt="Hermes" src="https://img.shields.io/badge/Hermes-7C3AED?style=flat-square">
+
+<a href="#-quickstart">Quickstart</a> · <a href="skills/README.md">Skill catalog</a> · <a href="#-vertical-market-stacks">Directory</a> · <a href="#-quant-mcp-servers">MCP Servers</a> · <a href="#-contributing">Contributing</a>
 
 **English** | [中文](README.zh-CN.md)
 
+</div>
+
+
 Unlike legacy quant lists cluttered with abandoned libraries, this directory focuses strictly on **autonomous agent capabilities**: machine-executable `SKILL.md` workflows, Model Context Protocol (MCP) tooling, and deterministic quantitative reasoning.
+
+---
+
+## At a glance
+
+| Section | What you will find | Entries |
+|:--|:--|--:|
+| 🌐 [Vertical Market Stacks](#-vertical-market-stacks) | Region-specific stacks: China A-shares and futures, crypto and DeFi, US and global equities | 96 |
+| ⚙ [Universal Quant Pipeline](#-universal-quant-pipeline) | Data, alpha, portfolio, backtesting audit and execution skills | 68 |
+| 🔌 [Quant MCP Servers](#-quant-mcp-servers) | MCP servers for market feeds, fundamentals and broker gateways | 32 |
+| 🏗 [Skill-Native Quant Frameworks](#-skill-native-quant-frameworks) | Open-source agent frameworks with modular skill architectures | 19 |
+| 📊 [Agent Evaluation & Benchmarks](#-agent-evaluation--benchmarks) | Benchmarks and evals for finance agents | 10 |
+| 🧪 [Miscellaneous & Other Skills](#-miscellaneous--other-skills) | Everything else worth a look | 1 |
+
+**Legend:** a `mirrored at` note marks entries with a local `SKILL.md` copy under [`skills/`](skills/) (browse the [skill catalog](skills/README.md)); entries without it are link-only.
 
 ---
 
@@ -178,7 +205,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [pmxt-dev/pmxt](https://github.com/pmxt-dev/pmxt) - CCXT-style unified API and self-hostable SDK for prediction-market data and order routing across Polymarket, Kalshi, Opinion, and Limitless (needs venue credentials for authenticated trading).
 - [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) - Foundational open-source toolkit connecting AI agents to Solana protocols with 60+ actions (Jupiter, Raydium, Orca, Meteora, Drift).
 - [Senpi-ai/senpi-skills](https://github.com/Senpi-ai/senpi-skills) - Hyperliquid perpetuals skill library with 15 `SKILL.md` files covering market pulse, smart-money flow, funding rates, position sizing and risk guardrails.
-- - [sieblyio/agent-skills](https://github.com/sieblyio/agent-skills) - MIT `SKILL.md` for Claude Code, Codex, Cursor and OpenClaw that guides agents writing JavaScript/TypeScript integrations with the open-source Siebly SDKs (Binance, OKX, Bitget, Gate, KuCoin, Kraken, Coinbase, Hyperliquid) for REST, WebSocket streams and WebSocket API requests. Docs: https://sieblyio.github.io/docs/
+- [sieblyio/agent-skills](https://github.com/sieblyio/agent-skills) - MIT `SKILL.md` for Claude Code, Codex, Cursor and OpenClaw that guides agents writing JavaScript/TypeScript integrations with the open-source Siebly SDKs (Binance, OKX, Bitget, Gate, KuCoin, Kraken, Coinbase, Hyperliquid) for REST, WebSocket streams and WebSocket API requests. Docs: https://sieblyio.github.io/docs/
 - [smartcontractkit/chainlink-agent-skills](https://github.com/smartcontractkit/chainlink-agent-skills) - Official Chainlink `agentskills.io` skills for CRE workflows, CCIP cross-chain messaging, multi-chain Data Feeds, Data Streams, ACE compliance for tokenized funds, and node operator diagnostics.
 - [SpartanLabsXyz/simmer-sdk](https://github.com/SpartanLabsXyz/simmer-sdk) - Prediction-market harness for agents: 37 `SKILL.md` files, a bundled `simmer-mcp` server and a Python SDK for paper-trading Polymarket, Kalshi and Hyperliquid.
 - [StalkChain/fomo-mcp-api](https://github.com/StalkChain/fomo-mcp-api) - Hosted OAuth MCP for Solana token holders and tracked-trader flows, plus Hyperliquid funding rates and candles, usable from Claude, Codex, Cursor and Gemini CLI (some queries use metered credits).
@@ -204,6 +231,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [stocktwits/stocktwits-mcp](https://github.com/stocktwits/stocktwits-mcp) - Official StockTwits MCP server exposing zero-auth tools to stream retail investor sentiment scores, trending tickers, and social volume momentum.
 - [yennanliu/InvestSkill](https://github.com/yennanliu/InvestSkill) - Zero-runtime collection of 34 structured US equity investment analysis prompt frameworks for Claude Code, Cursor, Gemini CLI, GitHub Copilot, and ChatGPT (no API keys or subscriptions required).
 - [zen-tradings/retail-skills-us](https://github.com/zen-tradings/retail-skills-us) - Skills tailored for US equity rule enforcement, tax-loss harvesting, and retail algorithmic setups.
+
+<p align="right"><a href="#top">⬆ back to top</a></p>
 
 ---
 
@@ -294,6 +323,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [Synpath-ai/synpath](https://github.com/Synpath-ai/synpath) - Python/Rust smart order routing (SOR) and advanced execution algorithms (TWAP, iceberg, pegged orders) for prediction and financial venues.
 - [TradeRouter/trade-router-mcp](https://github.com/TradeRouter/trade-router-mcp) - Algorithmic execution MCP server exposing TWAP slicing, DCA, and multi-DEX routing with MEV protection.
 
+<p align="right"><a href="#top">⬆ back to top</a></p>
+
 ---
 
 ## 🔌 Quant MCP Servers
@@ -336,6 +367,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [shuizhengqi1/futu-stock-mcp-server](https://github.com/shuizhengqi1/futu-stock-mcp-server) - Futu OpenAPI MCP server for HK, US and A-share Level-2 quotes, candlesticks, positions and order placement, shipped with its own `SKILL.md`.
 - [visusnet/coinbase-mcp-server](https://github.com/visusnet/coinbase-mcp-server) - MCP server and native Claude Skill (`coinbase-trading`) integrating Coinbase Advanced Trading API for autonomous trade execution.
 
+<p align="right"><a href="#top">⬆ back to top</a></p>
+
 ---
 
 ## 🏗 Skill-Native Quant Frameworks
@@ -361,6 +394,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [virattt/ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) - Multi-agent hedge-fund framework where investor-persona, fundamentals, technicals, sentiment, risk and portfolio agents deliberate before a trade decision, with a bundled backtester.
 - [yiyan-yixing/quant-trading-skills](https://github.com/yiyan-yixing/quant-trading-skills) - 11-role collaborative quant agent framework featuring 20 core skills, 3-tier memory, and adversarial challenge protocols.
 
+<p align="right"><a href="#top">⬆ back to top</a></p>
+
 ---
 
 ## 📊 Agent Evaluation & Benchmarks
@@ -384,6 +419,8 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 
 - [BoyceFong/quant-skill-build](https://github.com/BoyceFong/quant-skill-build) - Skill authoring and scaffolding builder optimized for Codex and quantitative prompt authoring.
 
+<p align="right"><a href="#top">⬆ back to top</a></p>
+
 ---
 
 ## 🤝 Contributing
@@ -395,6 +432,8 @@ We welcome community contributions! Please review our quality gates before submi
 3. **No Hallucinated Tooling**: Scripts and endpoints referenced in the skill must be verifiable and reproducible.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for submission details.
+
+<p align="right"><a href="#top">⬆ back to top</a></p>
 
 ---
 
@@ -412,6 +451,8 @@ You are solely responsible for compliance, risk control, and any losses.
 
 See [SECURITY.md](SECURITY.md) for safe defaults (paper-first, human approval, key handling).
 
+<p align="right"><a href="#top">⬆ back to top</a></p>
+
 ---
 
 ## 📄 License
@@ -419,3 +460,9 @@ See [SECURITY.md](SECURITY.md) for safe defaults (paper-first, human approval, k
 This repository's own curation (`README.md`, `.github/`, `CONTRIBUTING.md`) is released under the [MIT License](LICENSE).
 
 Skills under [`skills/`](skills/) are mirrored from upstream projects and **retain their original licenses** (see [NOTICE.md](NOTICE.md) and the `Imported from` header in each `SKILL.md`). Some mirrored skills are GPL-3.0 family — redistribution of those files follows their upstream terms, not MIT.
+
+## Star history
+
+<a href="https://star-history.com/#JerryLiu369/awesome-quant-skills&Date"><img alt="Star History" src="https://api.star-history.com/svg?repos=JerryLiu369/awesome-quant-skills&type=Date" width="600"></a>
+
+<p align="right"><a href="#top">⬆ back to top</a></p>

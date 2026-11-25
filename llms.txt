@@ -14,8 +14,12 @@
 - `skills/<category>/<name>/SKILL.md` — 45 mirrored skills, `SKILL.md`-only
   excerpts; each file has an `Imported from` header with its upstream source.
   Frontmatter always has `name` + `description`.
+- `skills/README.md` — generated catalog of all mirrored skills (description,
+  upstream, license per category). Rebuild with `python3 scripts/build_catalog.py`
+  (`--check` fails if stale); never edit by hand.
 - `scripts/install_skill.sh` — helper installer for local mirrored skills
-  (e.g. `./scripts/install_skill.sh ctp-api --target claude`).
+  (e.g. `./scripts/install_skill.sh ctp-api --target claude`;
+  `--list` prints skills by category).
 - Categories: `alpha-factors`, `backtesting-audit`, `china-markets`,
   `crypto-web3`, `global-equities`, `portfolio-risk`.
 - README directory sections (link-only upstream repos, no local copy):
