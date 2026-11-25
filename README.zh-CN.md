@@ -312,7 +312,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [EodHistoricalData/EODHD-MCP-Server](https://github.com/EodHistoricalData/EODHD-MCP-Server) - EOD Historical Data 官方 MCP 服务，通过 stdio、SSE 与 streamable-http 暴露 88 个工具，覆盖全球日线/盘中/美股逐笔行情、基本面、新闻情绪、筛选器、宏观、主权/信用风险与 OFAC 制裁名单（需要 EODHD API key）。
 - [financial-datasets/mcp-server](https://github.com/financial-datasets/mcp-server) - 专用 MCP 服务，为 LLM 消费裁剪的 10-K/10-Q 财务报表与行情（需 Financial Datasets API key；付费）。
 - [imbenrabi/Financial-Modeling-Prep-MCP-Server](https://github.com/imbenrabi/Financial-Modeling-Prep-MCP-Server) - FMP 的 MCP 服务，支持工具动态挂载，覆盖三大报表、财报电话会实录、13F 申报、内部人交易、SEC 申报与 DCF 模型。
-- [johnisanerd/alphaosint-mcp-servers](https://github.com/johnisanerd/alphaosint-mcp-servers/tree/main/servers/us-congress-trades) - 托管在 Apify 上的 MCP 服务（Streamable HTTP），查询美国众议院和参议院议员的 STOCK Act 股票交易披露：可按议员、股票代码或日期范围搜索，以 JSON 返回资产、金额区间、交易日期与申报日期；需 Apify OAuth 或 token，按结果计费。
+- [johnisanerd/alphaosint-mcp-servers](https://github.com/johnisanerd/alphaosint-mcp-servers/tree/main/servers/us-congress-trades) - 托管在 Apify 上的 MCP 服务（Streamable HTTP），查询美国众议院和参议院议员的 STOCK Act 股票交易披露：可按议员、股票代码或日期范围搜索，以 JSON 返回资产、金额区间、交易日期与申报日期；需 Apify OAuth 或 token，按结果计费（付费）。
 - [lazy-dinosaur/ccxt-mcp](https://github.com/lazy-dinosaur/ccxt-mcp) - 标准 MCP 服务，桥接 100+ 加密交易所的 CCXT，带交易后量化启发式。
 - [major7apps/tiingo-mcp](https://github.com/major7apps/tiingo-mcp) - Rust 编写的 Tiingo MCP，含工具、资源与量化提示模板，覆盖 EOD 价格、IEX 盘口报价、加密、外汇与新闻情绪。
 - [massive-com/mcp_massive](https://github.com/massive-com/mcp_massive) - Massive.com（原 Polygon.io）官方 MCP，提供美股、期权链、外汇与加密数据的 search/call/query 工具，内置 Black-Scholes 希腊字母与内存 SQL 分析。
