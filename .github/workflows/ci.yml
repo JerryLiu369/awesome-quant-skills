@@ -39,6 +39,8 @@ jobs:
           # github.com/rollysys/.* = rollysys/use_cninfo upstream was taken offline,
           #   and this repo preserves its out-of-print local mirror at
           #   skills/china-markets/cninfo-disclosure/SKILL.md;
+          # api.star-history.com = badge renderer that rate-limits shared CI
+          #   egress and answers 403 intermittently, not a dead link;
           # file:// = relative links to companion files (scripts/, references/)
           #   that live upstream; mirrors here are SKILL.md-only by design
           #   (see NOTICE.md), so those resolve upstream, not locally.
@@ -53,6 +55,7 @@ jobs:
             --exclude 'quantbuddy\.cn/.*'
             --exclude 'financialmodelingprep\.com/.*'
             --exclude 'x\.com/.*'
+            --exclude 'api\.star-history\.com/.*'
             --exclude 'fulltextSearch'
             --exclude 'MCP_HOST'
             './README.md' './README.zh-CN.md' './CONTRIBUTING.md' './NOTICE.md' './SECURITY.md'
