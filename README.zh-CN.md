@@ -178,6 +178,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [pmxt-dev/pmxt](https://github.com/pmxt-dev/pmxt) - 类 CCXT 风格的预测市场统一 API 与可自托管 SDK，支持 Polymarket、Kalshi、Opinion 与 Limitless 的行情获取与交易路由（实盘交易需对应预测市场平台凭据）。
 - [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) - 连接 AI agent 与 Solana 协议的基础开源工具包，60+ action（Jupiter、Raydium、Orca、Meteora、Drift）。
 - [Senpi-ai/senpi-skills](https://github.com/Senpi-ai/senpi-skills) - 面向 Hyperliquid 永续的开源技能库，15 个 `SKILL.md`，覆盖市场脉搏、聪明钱流向、资金费率、仓位管理与风控护栏。
+- - [sieblyio/agent-skills](https://github.com/sieblyio/agent-skills) - MIT `SKILL.md` for Claude Code, Codex, Cursor and OpenClaw that guides agents writing JavaScript/TypeScript integrations with the open-source Siebly SDKs (Binance, OKX, Bitget, Gate, KuCoin, Kraken, Coinbase, Hyperliquid) for REST, WebSocket streams and WebSocket API requests. Docs: https://sieblyio.github.io/docs/
 - [smartcontractkit/chainlink-agent-skills](https://github.com/smartcontractkit/chainlink-agent-skills) - Chainlink 官方 `agentskills.io` 规范 Skill 集，覆盖 CRE 工作流、CCIP 跨链协议、多链 Data Feeds、Data Streams、代币化基金 ACE 合规及节点运维诊断。
 - [SpartanLabsXyz/simmer-sdk](https://github.com/SpartanLabsXyz/simmer-sdk) - 面向 Agent 的预测市场套件：37 个 `SKILL.md`、内置 `simmer-mcp` 服务与 Python SDK，可在 Polymarket、Kalshi 与 Hyperliquid 上做模拟交易。
 - [StalkChain/fomo-mcp-api](https://github.com/StalkChain/fomo-mcp-api) - 支持 OAuth 的托管 MCP 服务，提供 Solana 代币持有人数据及跟踪交易者的资金流向，以及 Hyperliquid 资金费率和 K 线。可在 Claude、Codex、Cursor 和 Gemini CLI 中使用（部分查询消耗积分）。
