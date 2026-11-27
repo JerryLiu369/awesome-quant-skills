@@ -5,7 +5,7 @@
 <h3>面向量化金融、系统化研究与算法交易的 Agent Skill 与 MCP 服务精选目录</h3>
 
 <a href="https://awesome.re"><img alt="Awesome" src="https://awesome.re/badge.svg"></a> <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"></a> [![CI](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/JerryLiu369/awesome-quant-skills?style=flat-square)](https://github.com/JerryLiu369/awesome-quant-skills) <a href="CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a><br>
-<img alt="mirrored skills" src="https://img.shields.io/badge/%E9%95%9C%E5%83%8F%20skill-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/%E6%9D%A1%E7%9B%AE-318-informative?style=flat-square">
+<img alt="mirrored skills" src="https://img.shields.io/badge/%E9%95%9C%E5%83%8F%20skill-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/%E6%9D%A1%E7%9B%AE-319-informative?style=flat-square">
 
 **适用于**: <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square"> <img alt="Codex" src="https://img.shields.io/badge/Codex-10A37F?style=flat-square"> <img alt="Cursor" src="https://img.shields.io/badge/Cursor-000000?style=flat-square"> <img alt="OpenCode" src="https://img.shields.io/badge/OpenCode-2563EB?style=flat-square"> <img alt="OpenClaw" src="https://img.shields.io/badge/OpenClaw-E11D48?style=flat-square"> <img alt="Hermes" src="https://img.shields.io/badge/Hermes-7C3AED?style=flat-square">
 
@@ -26,7 +26,7 @@
 |:--|:--|--:|
 | 🌐 [按垂直市场分类](#-按垂直市场分类) | 分地区的完整栈：中国 A 股与期货、加密与 DeFi、美股与全球股票 | 131 |
 | ⚙ [通用量化流水线](#-通用量化流水线) | 数据、因子、组合、回测审计与执行 skill | 86 |
-| 🔌 [量化 MCP 服务](#-量化-mcp-服务) | 行情、基本面与券商网关 MCP 服务 | 54 |
+| 🔌 [量化 MCP 服务](#-量化-mcp-服务) | 行情、基本面与券商网关 MCP 服务 | 55 |
 | 🏗 [Skill 原生量化框架](#-skill-原生量化框架) | 拥有模块化 skill 架构的开源 agent 框架 | 28 |
 | 📊 [Agent 评测与基准](#-agent-评测与基准) | 金融 agent 的评测与基准 | 18 |
 | 🧪 [其他 Skill](#-其他-skill) | 其他值得一看的内容 | 1 |
@@ -401,6 +401,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [financial-datasets/mcp-server](https://github.com/financial-datasets/mcp-server) - 专用 MCP 服务，为 LLM 消费裁剪的 10-K/10-Q 财务报表与行情（需 Financial Datasets API key；付费）。
 - [imbenrabi/Financial-Modeling-Prep-MCP-Server](https://github.com/imbenrabi/Financial-Modeling-Prep-MCP-Server) - FMP 的 MCP 服务，支持工具动态挂载，覆盖三大报表、财报电话会实录、13F 申报、内部人交易、SEC 申报与 DCF 模型。
 - [johnisanerd/alphaosint-mcp-servers](https://github.com/johnisanerd/alphaosint-mcp-servers/tree/main/servers/us-congress-trades) - 托管在 Apify 上的 MCP 服务（Streamable HTTP），查询美国众议院和参议院议员的 STOCK Act 股票交易披露：可按议员、股票代码或日期范围搜索，以 JSON 返回资产、金额区间、交易日期与申报日期；需 Apify OAuth 或 token，按结果计费（付费）。
+- [johnisanerd/Apify-Earnings-Call-Transcript-API](https://github.com/johnisanerd/Apify-Earnings-Call-Transcript-API) - 托管在 Apify 上的 MCP 工具（Streamable HTTP），获取美国上市公司财报电话会实录与 SEC 8-K 申报：可按股票代码（或 CIK）与日期范围查询，以 JSON 返回带姓名与职务的发言段落、分析师提问与管理层回答配对及财季，或 8-K 条目代码、新闻稿正文、业绩指引语句与情绪分数，并支持跨全部 8-K 申报的全文关键词搜索；仓库附 Python 与 MCP 配置示例；需 Apify OAuth 或 token，按记录计费（付费）。
 - [kukapay/dune-analytics-mcp](https://github.com/kukapay/dune-analytics-mcp) - 将 Dune Analytics 链上 SQL 查询（`run_query`、`get_latest_result`）接入 AI Agent 的 Python MCP 服务器，用于 DeFi、DEX 与链上指标分析（需 Dune Analytics `DUNE_API_KEY`；含免费与付费档位）。
 - [lazy-dinosaur/ccxt-mcp](https://github.com/lazy-dinosaur/ccxt-mcp) - 标准 MCP 服务，桥接 100+ 加密交易所的 CCXT，带交易后量化启发式。
 - [LuxAlgo/luxalgo-mcp-server](https://github.com/LuxAlgo/luxalgo-mcp-server) - LuxAlgo 官方 MCP 服务器，支持通过本地 stdio（`npx -y @luxalgo/mcp`）或托管 OAuth 2.1 访问技术指标库、交易时段统计、自营交易模拟与交易日志工具（公开工具无需 API Key；个人数据需登录 LuxAlgo）。
