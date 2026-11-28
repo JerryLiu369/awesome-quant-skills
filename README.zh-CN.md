@@ -5,7 +5,7 @@
 <h3>面向量化金融、系统化研究与算法交易的 Agent Skill 与 MCP 服务精选目录</h3>
 
 <a href="https://awesome.re"><img alt="Awesome" src="https://awesome.re/badge.svg"></a> <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"></a> [![CI](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/JerryLiu369/awesome-quant-skills?style=flat-square)](https://github.com/JerryLiu369/awesome-quant-skills) <a href="CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a><br>
-<img alt="mirrored skills" src="https://img.shields.io/badge/%E9%95%9C%E5%83%8F%20skill-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/%E6%9D%A1%E7%9B%AE-319-informative?style=flat-square">
+<img alt="mirrored skills" src="https://img.shields.io/badge/%E9%95%9C%E5%83%8F%20skill-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/%E6%9D%A1%E7%9B%AE-320-informative?style=flat-square">
 
 **适用于**: <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square"> <img alt="Codex" src="https://img.shields.io/badge/Codex-10A37F?style=flat-square"> <img alt="Cursor" src="https://img.shields.io/badge/Cursor-000000?style=flat-square"> <img alt="OpenCode" src="https://img.shields.io/badge/OpenCode-2563EB?style=flat-square"> <img alt="OpenClaw" src="https://img.shields.io/badge/OpenClaw-E11D48?style=flat-square"> <img alt="Hermes" src="https://img.shields.io/badge/Hermes-7C3AED?style=flat-square">
 
@@ -24,7 +24,7 @@
 
 | 板块 | 内容 | 条目 |
 |:--|:--|--:|
-| 🌐 [按垂直市场分类](#-按垂直市场分类) | 分地区的完整栈：中国 A 股与期货、加密与 DeFi、美股与全球股票 | 131 |
+| 🌐 [按垂直市场分类](#-按垂直市场分类) | 分地区的完整栈：中国 A 股与期货、加密与 DeFi、美股与全球股票 | 132 |
 | ⚙ [通用量化流水线](#-通用量化流水线) | 数据、因子、组合、回测审计与执行 skill | 86 |
 | 🔌 [量化 MCP 服务](#-量化-mcp-服务) | 行情、基本面与券商网关 MCP 服务 | 55 |
 | 🏗 [Skill 原生量化框架](#-skill-原生量化框架) | 拥有模块化 skill 架构的开源 agent 框架 | 28 |
@@ -230,6 +230,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) - 连接 AI agent 与 Solana 协议的基础开源工具包，60+ action（Jupiter、Raydium、Orca、Meteora、Drift）。
 - [Senpi-ai/senpi-skills](https://github.com/Senpi-ai/senpi-skills) - 面向 Hyperliquid 永续的开源技能库，15 个 `SKILL.md`，覆盖市场脉搏、聪明钱流向、资金费率、仓位管理与风控护栏。
 - [sieblyio/agent-skills](https://github.com/sieblyio/agent-skills) - MIT `SKILL.md` for Claude Code, Codex, Cursor and OpenClaw that guides agents writing JavaScript/TypeScript integrations with the open-source Siebly SDKs (Binance, OKX, Bitget, Gate, KuCoin, Kraken, Coinbase, Hyperliquid) for REST, WebSocket streams and WebSocket API requests. Docs: https://sieblyio.github.io/docs/
+- [signalcheckerhq/mcp-server](https://github.com/signalcheckerhq/mcp-server) - 远程 MCP 服务器（流式 HTTP：https://signalcheckerhq.org/mcp），基于 Coinbase 真实小时价格提供 5 个只读工具：按手续费回放加密交易信号、强平价格、仓位大小、近约 1,000 个小时入场中哪些杠杆存活，以及 12 个币种的每日杠杆上限（无需 API 密钥）。
 - [smartcontractkit/chainlink-agent-skills](https://github.com/smartcontractkit/chainlink-agent-skills) - Chainlink 官方 `agentskills.io` 规范 Skill 集，覆盖 CRE 工作流、CCIP 跨链协议、多链 Data Feeds、Data Streams、代币化基金 ACE 合规及节点运维诊断。
 - [solana-foundation/solana-dev-skill](https://github.com/solana-foundation/solana-dev-skill) - Solana 基金会官方开发 Agent Skill（`SKILL.md`），涵盖 `@solana/kit`、Anchor、Pinocchio、Codama IDL 生成及 Surfpool/LiteSVM 测试等现代 Solana 开发工作流。
 - [SpartanLabsXyz/simmer-sdk](https://github.com/SpartanLabsXyz/simmer-sdk) - 面向 Agent 的预测市场套件：37 个 `SKILL.md`、内置 `simmer-mcp` 服务与 Python SDK，可在 Polymarket、Kalshi 与 Hyperliquid 上做模拟交易。
