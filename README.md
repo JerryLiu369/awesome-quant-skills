@@ -5,7 +5,7 @@
 <h3>Agent Skills &amp; MCP servers for quantitative finance, systematic research and algorithmic trading</h3>
 
 <a href="https://awesome.re"><img alt="Awesome" src="https://awesome.re/badge.svg"></a> <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"></a> [![CI](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JerryLiu369/awesome-quant-skills/actions/workflows/ci.yml) [![GitHub stars](https://img.shields.io/github/stars/JerryLiu369/awesome-quant-skills?style=flat-square)](https://github.com/JerryLiu369/awesome-quant-skills) <a href="CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a><br>
-<img alt="mirrored skills" src="https://img.shields.io/badge/mirrored%20skills-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/entries-319-informative?style=flat-square">
+<img alt="mirrored skills" src="https://img.shields.io/badge/mirrored%20skills-45-8A2BE2?style=flat-square"> <img alt="entries" src="https://img.shields.io/badge/entries-320-informative?style=flat-square">
 
 **Works with**: <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square"> <img alt="Codex" src="https://img.shields.io/badge/Codex-10A37F?style=flat-square"> <img alt="Cursor" src="https://img.shields.io/badge/Cursor-000000?style=flat-square"> <img alt="OpenCode" src="https://img.shields.io/badge/OpenCode-2563EB?style=flat-square"> <img alt="OpenClaw" src="https://img.shields.io/badge/OpenClaw-E11D48?style=flat-square"> <img alt="Hermes" src="https://img.shields.io/badge/Hermes-7C3AED?style=flat-square">
 
@@ -24,7 +24,7 @@ Unlike legacy quant lists cluttered with abandoned libraries, this directory foc
 
 | Section | What you will find | Entries |
 |:--|:--|--:|
-| 🌐 [Vertical Market Stacks](#-vertical-market-stacks) | Region-specific stacks: China A-shares and futures, crypto and DeFi, US and global equities | 131 |
+| 🌐 [Vertical Market Stacks](#-vertical-market-stacks) | Region-specific stacks: China A-shares and futures, crypto and DeFi, US and global equities | 132 |
 | ⚙ [Universal Quant Pipeline](#-universal-quant-pipeline) | Data, alpha, portfolio, backtesting audit and execution skills | 86 |
 | 🔌 [Quant MCP Servers](#-quant-mcp-servers) | MCP servers for market feeds, fundamentals and broker gateways | 55 |
 | 🏗 [Skill-Native Quant Frameworks](#-skill-native-quant-frameworks) | Open-source agent frameworks with modular skill architectures | 28 |
@@ -230,6 +230,7 @@ cp -r skills/china-markets/ctp-api ~/.claude/skills/
 - [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) - Foundational open-source toolkit connecting AI agents to Solana protocols with 60+ actions (Jupiter, Raydium, Orca, Meteora, Drift).
 - [Senpi-ai/senpi-skills](https://github.com/Senpi-ai/senpi-skills) - Hyperliquid perpetuals skill library with 15 `SKILL.md` files covering market pulse, smart-money flow, funding rates, position sizing and risk guardrails.
 - [sieblyio/agent-skills](https://github.com/sieblyio/agent-skills) - MIT `SKILL.md` for Claude Code, Codex, Cursor and OpenClaw that guides agents writing JavaScript/TypeScript integrations with the open-source Siebly SDKs (Binance, OKX, Bitget, Gate, KuCoin, Kraken, Coinbase, Hyperliquid) for REST, WebSocket streams and WebSocket API requests. Docs: https://sieblyio.github.io/docs/
+- [signalcheckerhq/mcp-server](https://github.com/signalcheckerhq/mcp-server) - Remote MCP server (streamable HTTP at https://signalcheckerhq.org/mcp) with 5 read-only tools on real Coinbase hourly prices: replay a crypto signal call after fees, liquidation price, position size, which leverage survived the last ~1,000 hourly entries, and a daily Leverage Ceiling for 12 coins (no API key).
 - [smartcontractkit/chainlink-agent-skills](https://github.com/smartcontractkit/chainlink-agent-skills) - Official Chainlink `agentskills.io` skills for CRE workflows, CCIP cross-chain messaging, multi-chain Data Feeds, Data Streams, ACE compliance for tokenized funds, and node operator diagnostics.
 - [solana-foundation/solana-dev-skill](https://github.com/solana-foundation/solana-dev-skill) - Official Solana Foundation Agent Skill (`SKILL.md`) for modern Solana dApp and program development with `@solana/kit`, Anchor, Pinocchio, Codama IDL generation, and Surfpool/LiteSVM testing.
 - [SpartanLabsXyz/simmer-sdk](https://github.com/SpartanLabsXyz/simmer-sdk) - Prediction-market harness for agents: 37 `SKILL.md` files, a bundled `simmer-mcp` server and a Python SDK for paper-trading Polymarket, Kalshi and Hyperliquid.
